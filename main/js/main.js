@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Borgo & Ulivi — script principale
+   Rooms Hub — script principale
    Vanilla JS, nessuna dipendenza esterna.
    ========================================================================== */
 (function () {
@@ -298,16 +298,16 @@
         String(data.get("messaggio")),
       ].filter(Boolean);
 
-      const subject = "Richiesta informazioni — " + (data.get("struttura") || "Borgo & Ulivi");
+      const subject = "Richiesta informazioni — " + (data.get("struttura") || "Rooms Hub");
       const mailto =
-        "mailto:info@borgoulivi.it?subject=" +
+        "mailto:info@roomshub.it?subject=" +
         encodeURIComponent(subject) +
         "&body=" +
         encodeURIComponent(lines.join("\n"));
 
       setStatus(
         "ok",
-        "Grazie! Stiamo aprendo il tuo programma di posta con la richiesta già compilata. In alternativa scrivi a info@borgoulivi.it."
+        "Grazie! Stiamo aprendo il tuo programma di posta con la richiesta già compilata. In alternativa scrivi a info@roomshub.it."
       );
 
       window.location.href = mailto;

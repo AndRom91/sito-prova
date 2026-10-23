@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Galleria — Borgo &amp; Ulivi</title>
-  <meta name="description" content="Le camere, i giardini, le piscine e le colazioni dei quattro bed & breakfast di Borgo & Ulivi in Toscana.">
-  <meta name="theme-color" content="#f8f4ec">
-  <link rel="canonical" href="https://tuo-utente.github.io/sito-prova/galleria.html">
+  <title>Galleria — Rooms Hub</title>
+  <meta name="description" content="Le camere, le terrazze, le colazioni e gli esterni delle cinque case di Rooms Hub, tra Salerno, la Costiera Amalfitana e il Cilento.">
+  <meta name="theme-color" content="#fbf9f3">
+  <link rel="canonical" href="https://androm91.github.io/sito-prova/galleria.html">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="it_IT">
-  <meta property="og:site_name" content="Borgo & Ulivi">
-  <meta property="og:title" content="Galleria — Borgo &amp; Ulivi">
-  <meta property="og:description" content="Un assaggio delle nostre case: camere, esterni, piscine e colazioni.">
-  <meta property="og:image" content="assets/img/hero.svg">
-  <meta property="og:url" content="https://tuo-utente.github.io/sito-prova/galleria.html">
+  <meta property="og:site_name" content="Rooms Hub">
+  <meta property="og:title" content="Galleria — Rooms Hub">
+  <meta property="og:description" content="Uno sguardo alle nostre case: camere, esterni, colazioni e appartamenti.">
+  <meta property="og:image" content="https://androm91.github.io/sito-prova/assets/img/foto/costiera.jpg">
+  <meta property="og:url" content="https://androm91.github.io/sito-prova/galleria.html">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
   <script>document.documentElement.classList.add('js');</script>
@@ -32,11 +32,13 @@
     <div class="container header__inner">
       <a class="brand" href="index.html">
         <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-          <path d="M15 53V31a17 17 0 0 1 34 0v22" fill="none" stroke-width="3" stroke-linecap="round"/>
-          <circle cx="32" cy="31" r="7" fill="#b4552f" stroke="none"/>
-          <path d="M15 53h34" fill="none" stroke-width="3" stroke-linecap="round"/>
+          <path d="M10 55V31a22 22 0 0 1 44 0v24" fill="none" stroke="#f7c600" stroke-width="6" stroke-linecap="round"/>
+          <path d="M18 55V34a14 14 0 0 1 28 0v21" fill="#eaf6fb"/>
+          <path d="M18 55c3.5-8 9-12 14-12s10.5 4 14 12" fill="#2c7a4b"/>
+          <rect x="28" y="35" width="8" height="15" rx="1.5" fill="#0b6c92"/>
+          <path d="M18 55h28" stroke="#f7c600" stroke-width="5" stroke-linecap="round"/>
         </svg>
-        <span>Borgo &amp; Ulivi<small>Bed &amp; Breakfast</small></span>
+        <span>Rooms Hub<small>Case &amp; camere</small></span>
       </a>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principale" aria-label="Apri il menu">
@@ -50,7 +52,7 @@
           <li><a class="nav__link" href="galleria.html" aria-current="page">Galleria</a></li>
           <li><a class="nav__link" href="contatti.html">Contatti</a></li>
         </ul>
-        <a class="btn btn--primary nav__cta" href="contatti.html#richiesta">Verifica disponibilità</a>
+        <a class="btn btn--primary nav__cta" href="contatti.html#richiesta">Chiedi disponibilità</a>
       </nav>
     </div>
   </header>
@@ -78,69 +80,69 @@
           <button class="filter" type="button" data-filter="tutte" aria-pressed="true">Tutte</button>
           <button class="filter" type="button" data-filter="camere" aria-pressed="false">Camere</button>
           <button class="filter" type="button" data-filter="esterni" aria-pressed="false">Esterni</button>
-          <button class="filter" type="button" data-filter="piscina" aria-pressed="false">Piscina</button>
           <button class="filter" type="button" data-filter="colazione" aria-pressed="false">Colazione</button>
+          <button class="filter" type="button" data-filter="appartamenti" aria-pressed="false">Appartamenti</button>
         </div>
 
         <div class="gallery-grid">
-          <a class="gallery__item reveal" href="assets/img/struttura-1.svg" data-category="esterni" data-caption="La piscina di Villa degli Ulivi, tra gli ulivi">
-            <img src="assets/img/struttura-1.svg" alt="Piscina circondata dagli ulivi nel giardino di Villa degli Ulivi" loading="lazy" width="800" height="600">
-            <span class="gallery__caption">Villa degli Ulivi</span>
+          <a class="gallery__item reveal" href="assets/img/foto/hero-vietri.jpg" data-category="esterni" data-caption="La terrazza di Vietri sul Mare, affacciata sul mare">
+            <img src="assets/img/foto/hero-vietri.jpg" alt="La terrazza di Vietri sul Mare con vista sul mare" loading="lazy" width="1080" height="1350">
+            <span class="gallery__caption">La terrazza di Vietri</span>
           </a>
 
-          <a class="gallery__item reveal" href="assets/img/galleria-5.svg" data-category="piscina" data-caption="Sdraio e ombrellone a bordo piscina">
-            <img src="assets/img/galleria-5.svg" alt="Sdraio e ombrellone accanto alla piscina" loading="lazy" width="800" height="600">
-            <span class="gallery__caption">A bordo piscina</span>
+          <a class="gallery__item reveal" href="assets/img/foto/colazione-terrazza.jpg" data-category="colazione" data-caption="La colazione in terrazza, con il mare davanti">
+            <img src="assets/img/foto/colazione-terrazza.jpg" alt="Tavolo apparecchiato per la colazione su una terrazza vista mare" loading="lazy" width="512" height="640">
+            <span class="gallery__caption">Colazione in terrazza</span>
           </a>
 
-          <a class="gallery__item reveal" href="assets/img/galleria-2.svg" data-category="camere" data-caption="Una porta ad arco e la tenda di lino di Casa della Luna">
-            <img src="assets/img/galleria-2.svg" alt="Porta ad arco con tenda di lino in una camera" loading="lazy" width="800" height="600">
-            <span class="gallery__caption">La porta di lino</span>
+          <a class="gallery__item reveal" href="assets/img/foto/vietri-camera.jpg" data-category="camere" data-caption="La camera con balcone vista mare di Vietri sul Mare">
+            <img src="assets/img/foto/vietri-camera.jpg" alt="Camera con letto matrimoniale e balcone vista mare a Vietri sul Mare" loading="lazy" width="1080" height="1350">
+            <span class="gallery__caption">Camera vista mare</span>
           </a>
 
-          <a class="gallery__item reveal" href="assets/img/galleria-3.svg" data-category="colazione" data-caption="La tavola del mattino: pane, torte e marmellate di casa">
-            <img src="assets/img/galleria-3.svg" alt="Tavolo della colazione con tazzine, cornetto e marmellata" loading="lazy" width="800" height="600">
+          <a class="gallery__item reveal" href="assets/img/foto/torre-salone.jpg" data-category="appartamenti" data-caption="Il salone con gli archi in pietra di Torre di Cesare">
+            <img src="assets/img/foto/torre-salone.jpg" alt="Salone con archi in pietra e divani di Torre di Cesare" loading="lazy" width="1400" height="1050">
+            <span class="gallery__caption">Il salone di Torre di Cesare</span>
+          </a>
+
+          <a class="gallery__item reveal" href="assets/img/foto/portarotese-camera.jpg" data-category="camere" data-caption="Una delle camere di Portarotese, nel centro di Salerno">
+            <img src="assets/img/foto/portarotese-camera.jpg" alt="Camera con letto matrimoniale e testiera blu a Portarotese, Salerno" loading="lazy" width="1350" height="1080">
+            <span class="gallery__caption">Portarotese, Salerno</span>
+          </a>
+
+          <a class="gallery__item reveal" href="assets/img/foto/colazione-tavola.jpg" data-category="colazione" data-caption="La tavola del mattino: cornetti, succhi e caffè">
+            <img src="assets/img/foto/colazione-tavola.jpg" alt="Tavolo con cornetti, succhi e caffè vista mare" loading="lazy" width="512" height="640">
             <span class="gallery__caption">La tavola del mattino</span>
           </a>
 
-          <a class="gallery__item reveal" href="assets/img/struttura-3.svg" data-category="esterni" data-caption="Il cortile di pietra de Il Giardino Segreto">
-            <img src="assets/img/struttura-3.svg" alt="Cortile in pietra con arco e piante in vaso" loading="lazy" width="800" height="600">
-            <span class="gallery__caption">Il cortile segreto</span>
+          <a class="gallery__item reveal" href="assets/img/foto/costiera.jpg" data-category="esterni" data-caption="La costa vista da Torre di Cesare">
+            <img src="assets/img/foto/costiera.jpg" alt="Vista sul mare della Costiera Amalfitana" loading="lazy" width="1400" height="818">
+            <span class="gallery__caption">La Costiera</span>
           </a>
 
-          <a class="gallery__item reveal" href="assets/img/struttura-2.svg" data-category="camere" data-caption="Camera con letto matrimoniale e finestra ad arco">
-            <img src="assets/img/struttura-2.svg" alt="Camera con letto matrimoniale e finestra ad arco" loading="lazy" width="800" height="600">
-            <span class="gallery__caption">Camera con vista</span>
+          <a class="gallery__item reveal" href="assets/img/foto/zottoli-camera.jpg" data-category="camere" data-caption="La camera matrimoniale dell'appartamento Zottoli">
+            <img src="assets/img/foto/zottoli-camera.jpg" alt="Camera matrimoniale con parete rossa e cuscini neri a Zottoli, Salerno" loading="lazy" width="1350" height="1080">
+            <span class="gallery__caption">Zottoli, Salerno</span>
           </a>
 
-          <a class="gallery__item reveal" href="assets/img/galleria-6.svg" data-category="colazione" data-caption="Frutta di stagione servita in terrazza">
-            <img src="assets/img/galleria-6.svg" alt="Tavolo in terrazza con frutta, caffè e marmellata" loading="lazy" width="800" height="600">
-            <span class="gallery__caption">Frutta di stagione</span>
+          <a class="gallery__item reveal" href="assets/img/foto/zottoli-cucina.jpg" data-category="appartamenti" data-caption="La cucina attrezzata dell'appartamento Zottoli">
+            <img src="assets/img/foto/zottoli-cucina.jpg" alt="Cucina attrezzata con tavolo e sedie dell'appartamento Zottoli" loading="lazy" width="1350" height="1080">
+            <span class="gallery__caption">La cucina di Zottoli</span>
           </a>
 
-          <a class="gallery__item reveal" href="assets/img/galleria-4.svg" data-category="esterni" data-caption="Il tramonto dalla terrazza del podere">
-            <img src="assets/img/galleria-4.svg" alt="Terrazza con pergolato e sedie al tramonto" loading="lazy" width="800" height="600">
-            <span class="gallery__caption">Tramonto in terrazza</span>
+          <a class="gallery__item reveal" href="assets/img/foto/colazione-letto.jpg" data-category="colazione" data-caption="La colazione servita in camera, con i petali di rosa">
+            <img src="assets/img/foto/colazione-letto.jpg" alt="Vassoio della colazione sul letto con petali di rosa" loading="lazy" width="360" height="640">
+            <span class="gallery__caption">Colazione a letto</span>
           </a>
 
-          <a class="gallery__item reveal" href="assets/img/struttura-4.svg" data-category="esterni" data-caption="I filari e il casale di Podere Le Cantine">
-            <img src="assets/img/struttura-4.svg" alt="Filari di vigna al tramonto davanti al casale" loading="lazy" width="800" height="600">
-            <span class="gallery__caption">Tra i filari</span>
+          <a class="gallery__item reveal" href="assets/img/foto/torre-camera.jpg" data-category="camere" data-caption="Una camera di Torre di Cesare, con le travi a vista">
+            <img src="assets/img/foto/torre-camera.jpg" alt="Camera matrimoniale bianca con travi a vista a Torre di Cesare" loading="lazy" width="1400" height="1050">
+            <span class="gallery__caption">Torre di Cesare</span>
           </a>
 
-          <a class="gallery__item reveal" href="assets/img/galleria-1.svg" data-category="piscina" data-caption="L'acqua salata della piscina, di prima mattina">
-            <img src="assets/img/galleria-1.svg" alt="Dettaglio dell'acqua turchese della piscina" loading="lazy" width="800" height="600">
-            <span class="gallery__caption">Acqua salata</span>
-          </a>
-
-          <a class="gallery__item reveal" href="assets/img/galleria-7.svg" data-category="camere" data-caption="La vasca in nicchia di una delle camere">
-            <img src="assets/img/galleria-7.svg" alt="Vasca freestanding in una nicchia ad arco" loading="lazy" width="800" height="600">
-            <span class="gallery__caption">Bagno in nicchia</span>
-          </a>
-
-          <a class="gallery__item reveal" href="assets/img/hero.svg" data-category="esterni" data-caption="Le colline toscane all'alba, viste dalla villa">
-            <img src="assets/img/hero.svg" alt="Colline toscane al tramonto con cipressi" loading="lazy" width="1600" height="900">
-            <span class="gallery__caption">Le colline</span>
+          <a class="gallery__item reveal" href="assets/img/foto/leucosia-scale.jpg" data-category="esterni" data-caption="Le scale fiorite di Leucosia, a Santa Maria di Castellabate">
+            <img src="assets/img/foto/leucosia-scale.jpg" alt="Scalinata esterna con piante e fiori a Santa Maria di Castellabate" loading="lazy" width="361" height="640">
+            <span class="gallery__caption">Leucosia, Cilento</span>
           </a>
         </div>
       </div>
@@ -165,15 +167,17 @@
       <div>
         <a class="footer__brand" href="index.html">
           <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
-            <path d="M15 53V31a17 17 0 0 1 34 0v22" fill="none" stroke-width="3" stroke-linecap="round"/>
-            <circle cx="32" cy="31" r="7" fill="#b4552f" stroke="none"/>
-            <path d="M15 53h34" fill="none" stroke-width="3" stroke-linecap="round"/>
+            <path d="M10 55V31a22 22 0 0 1 44 0v24" fill="none" stroke="#f7c600" stroke-width="6" stroke-linecap="round"/>
+            <path d="M18 55V34a14 14 0 0 1 28 0v21" fill="#eaf6fb"/>
+            <path d="M18 55c3.5-8 9-12 14-12s10.5 4 14 12" fill="#2c7a4b"/>
+            <rect x="28" y="35" width="8" height="15" rx="1.5" fill="#0b6c92"/>
+            <path d="M18 55h28" stroke="#f7c600" stroke-width="5" stroke-linecap="round"/>
           </svg>
-          Borgo &amp; Ulivi
+          Rooms Hub
         </a>
         <p class="footer__about">
-          Un hub di quattro bed &amp; breakfast in Toscana, gestiti da famiglie che si conoscono da trent'anni.
-          Ospitalità semplice, colazioni lunghe, strade poco battute.
+          Case e camere tra Salerno, la Costiera Amalfitana e il Cilento.
+          Un unico modo di accogliere: con calma, con cura, come a casa.
         </p>
       </div>
 
@@ -190,27 +194,29 @@
       <div>
         <h2 class="footer__title">Strutture</h2>
         <ul class="footer__list">
-          <li><a href="strutture.html#villa-degli-ulivi">Villa degli Ulivi</a></li>
-          <li><a href="strutture.html#casa-della-luna">Casa della Luna</a></li>
-          <li><a href="strutture.html#il-giardino-segreto">Il Giardino Segreto</a></li>
-          <li><a href="strutture.html#podere-le-cantine">Podere Le Cantine</a></li>
+          <li><a href="strutture.html#portarotese">Portarotese</a></li>
+          <li><a href="strutture.html#zottoli">Zottoli</a></li>
+          <li><a href="strutture.html#vietri">Vietri sul Mare</a></li>
+          <li><a href="strutture.html#torre-di-cesare">Torre di Cesare</a></li>
+          <li><a href="strutture.html#leucosia">Leucosia</a></li>
         </ul>
       </div>
 
       <div>
         <h2 class="footer__title">Contatti</h2>
         <ul class="footer__list">
-          <li><a href="mailto:info@borgoulivi.it">info@borgoulivi.it</a></li>
-          <li><a href="tel:+390577123456">+39 0577 123456</a></li>
-          <li>Via delle Colline 12<br>53037 San Gimignano (SI)</li>
+          <li><a href="mailto:info@roomshub.it">info@roomshub.it</a></li>
+          <li><a href="tel:+393333333333">+39 333 333 3333</a></li>
+          <li>Salerno, Campania</li>
+          <li><a href="https://www.instagram.com/roomshub.it/" target="_blank" rel="noopener">Instagram @roomshub.it</a></li>
           <li><a href="contatti.html#richiesta">Richiedi disponibilità</a></li>
         </ul>
       </div>
     </div>
 
     <div class="container footer__bottom">
-      <p>&copy; <span data-year>2026</span> Borgo &amp; Ulivi — P.IVA 01234567890</p>
-      <p>Sito dimostrativo · immagini illustrative · <a href="contatti.html">Privacy e cookie</a></p>
+      <p>&copy; <span data-year>2026</span> Rooms Hub — C.F. RMNGNN90B08H703U · REA SA 515460</p>
+      <p>Foto delle strutture e dei profili Instagram · <a href="contatti.html">Privacy e cookie</a></p>
     </div>
   </footer>
 
@@ -227,7 +233,7 @@
       <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Foto precedente">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
-      <img class="lightbox__img" src="assets/img/hero.svg" alt="">
+      <img class="lightbox__img" src="assets/img/foto/hero-vietri.jpg" alt="">
       <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Foto successiva">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
