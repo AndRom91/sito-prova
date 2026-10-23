@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galleria — Borgo &amp; Ulivi</title>
+  <meta name="description" content="Le camere, i giardini, le piscine e le colazioni dei quattro bed & breakfast di Borgo & Ulivi in Toscana.">
+  <meta name="theme-color" content="#f8f4ec">
+  <link rel="canonical" href="https://tuo-utente.github.io/sito-prova/galleria.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:site_name" content="Borgo & Ulivi">
+  <meta property="og:title" content="Galleria — Borgo &amp; Ulivi">
+  <meta property="og:description" content="Un assaggio delle nostre case: camere, esterni, piscine e colazioni.">
+  <meta property="og:image" content="assets/img/hero.svg">
+  <meta property="og:url" content="https://tuo-utente.github.io/sito-prova/galleria.html">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#contenuto">Vai al contenuto principale</a>
+
+  <header class="site-header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html">
+        <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <path d="M15 53V31a17 17 0 0 1 34 0v22" fill="none" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="32" cy="31" r="7" fill="#b4552f" stroke="none"/>
+          <path d="M15 53h34" fill="none" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <span>Borgo &amp; Ulivi<small>Bed &amp; Breakfast</small></span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principale" aria-label="Apri il menu">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+      </button>
+
+      <nav class="nav" id="menu-principale" aria-label="Navigazione principale">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html">Home</a></li>
+          <li><a class="nav__link" href="strutture.html">Strutture</a></li>
+          <li><a class="nav__link" href="galleria.html" aria-current="page">Galleria</a></li>
+          <li><a class="nav__link" href="contatti.html">Contatti</a></li>
+        </ul>
+        <a class="btn btn--primary nav__cta" href="contatti.html#richiesta">Verifica disponibilità</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenuto">
+    <section class="page-head">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Percorso">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Galleria</span>
+        </nav>
+        <p class="eyebrow">Sguardi</p>
+        <h1 class="page-head__title">La casa, prima di arrivarci</h1>
+        <p class="page-head__text">
+          Clicca su una foto per vederla a tutto schermo. Usa le frecce della tastiera per passare da una all'altra,
+          Esc per chiudere.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="filters reveal" role="group" aria-label="Filtra le foto per categoria">
+          <button class="filter" type="button" data-filter="tutte" aria-pressed="true">Tutte</button>
+          <button class="filter" type="button" data-filter="camere" aria-pressed="false">Camere</button>
+          <button class="filter" type="button" data-filter="esterni" aria-pressed="false">Esterni</button>
+          <button class="filter" type="button" data-filter="piscina" aria-pressed="false">Piscina</button>
+          <button class="filter" type="button" data-filter="colazione" aria-pressed="false">Colazione</button>
+        </div>
+
+        <div class="gallery-grid">
+          <a class="gallery__item reveal" href="assets/img/struttura-1.svg" data-category="esterni" data-caption="La piscina di Villa degli Ulivi, tra gli ulivi">
+            <img src="assets/img/struttura-1.svg" alt="Piscina circondata dagli ulivi nel giardino di Villa degli Ulivi" loading="lazy" width="800" height="600">
+            <span class="gallery__caption">Villa degli Ulivi</span>
+          </a>
+
+          <a class="gallery__item reveal" href="assets/img/galleria-5.svg" data-category="piscina" data-caption="Sdraio e ombrellone a bordo piscina">
+            <img src="assets/img/galleria-5.svg" alt="Sdraio e ombrellone accanto alla piscina" loading="lazy" width="800" height="600">
+            <span class="gallery__caption">A bordo piscina</span>
+          </a>
+
+          <a class="gallery__item reveal" href="assets/img/galleria-2.svg" data-category="camere" data-caption="Una porta ad arco e la tenda di lino di Casa della Luna">
+            <img src="assets/img/galleria-2.svg" alt="Porta ad arco con tenda di lino in una camera" loading="lazy" width="800" height="600">
+            <span class="gallery__caption">La porta di lino</span>
+          </a>
+
+          <a class="gallery__item reveal" href="assets/img/galleria-3.svg" data-category="colazione" data-caption="La tavola del mattino: pane, torte e marmellate di casa">
+            <img src="assets/img/galleria-3.svg" alt="Tavolo della colazione con tazzine, cornetto e marmellata" loading="lazy" width="800" height="600">
+            <span class="gallery__caption">La tavola del mattino</span>
+          </a>
+
+          <a class="gallery__item reveal" href="assets/img/struttura-3.svg" data-category="esterni" data-caption="Il cortile di pietra de Il Giardino Segreto">
+            <img src="assets/img/struttura-3.svg" alt="Cortile in pietra con arco e piante in vaso" loading="lazy" width="800" height="600">
+            <span class="gallery__caption">Il cortile segreto</span>
+          </a>
+
+          <a class="gallery__item reveal" href="assets/img/struttura-2.svg" data-category="camere" data-caption="Camera con letto matrimoniale e finestra ad arco">
+            <img src="assets/img/struttura-2.svg" alt="Camera con letto matrimoniale e finestra ad arco" loading="lazy" width="800" height="600">
+            <span class="gallery__caption">Camera con vista</span>
+          </a>
+
+          <a class="gallery__item reveal" href="assets/img/galleria-6.svg" data-category="colazione" data-caption="Frutta di stagione servita in terrazza">
+            <img src="assets/img/galleria-6.svg" alt="Tavolo in terrazza con frutta, caffè e marmellata" loading="lazy" width="800" height="600">
+            <span class="gallery__caption">Frutta di stagione</span>
+          </a>
+
+          <a class="gallery__item reveal" href="assets/img/galleria-4.svg" data-category="esterni" data-caption="Il tramonto dalla terrazza del podere">
+            <img src="assets/img/galleria-4.svg" alt="Terrazza con pergolato e sedie al tramonto" loading="lazy" width="800" height="600">
+            <span class="gallery__caption">Tramonto in terrazza</span>
+          </a>
+
+          <a class="gallery__item reveal" href="assets/img/struttura-4.svg" data-category="esterni" data-caption="I filari e il casale di Podere Le Cantine">
+            <img src="assets/img/struttura-4.svg" alt="Filari di vigna al tramonto davanti al casale" loading="lazy" width="800" height="600">
+            <span class="gallery__caption">Tra i filari</span>
+          </a>
+
+          <a class="gallery__item reveal" href="assets/img/galleria-1.svg" data-category="piscina" data-caption="L'acqua salata della piscina, di prima mattina">
+            <img src="assets/img/galleria-1.svg" alt="Dettaglio dell'acqua turchese della piscina" loading="lazy" width="800" height="600">
+            <span class="gallery__caption">Acqua salata</span>
+          </a>
+
+          <a class="gallery__item reveal" href="assets/img/galleria-7.svg" data-category="camere" data-caption="La vasca in nicchia di una delle camere">
+            <img src="assets/img/galleria-7.svg" alt="Vasca freestanding in una nicchia ad arco" loading="lazy" width="800" height="600">
+            <span class="gallery__caption">Bagno in nicchia</span>
+          </a>
+
+          <a class="gallery__item reveal" href="assets/img/hero.svg" data-category="esterni" data-caption="Le colline toscane all'alba, viste dalla villa">
+            <img src="assets/img/hero.svg" alt="Colline toscane al tramonto con cipressi" loading="lazy" width="1600" height="900">
+            <span class="gallery__caption">Le colline</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="container cta__inner">
+        <div>
+          <h2 id="cta-title">Ti è venuta voglia di partire?</h2>
+          <p>Scrivici le date e la struttura che ti incuriosisce: ti diciamo subito se è libera.</p>
+        </div>
+        <a class="btn btn--dark" href="contatti.html#richiesta">
+          Richiedi disponibilità
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__main">
+      <div>
+        <a class="footer__brand" href="index.html">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M15 53V31a17 17 0 0 1 34 0v22" fill="none" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="32" cy="31" r="7" fill="#b4552f" stroke="none"/>
+            <path d="M15 53h34" fill="none" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          Borgo &amp; Ulivi
+        </a>
+        <p class="footer__about">
+          Un hub di quattro bed &amp; breakfast in Toscana, gestiti da famiglie che si conoscono da trent'anni.
+          Ospitalità semplice, colazioni lunghe, strade poco battute.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="footer__title">Esplora</h2>
+        <ul class="footer__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="strutture.html">Strutture</a></li>
+          <li><a href="galleria.html">Galleria</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__title">Strutture</h2>
+        <ul class="footer__list">
+          <li><a href="strutture.html#villa-degli-ulivi">Villa degli Ulivi</a></li>
+          <li><a href="strutture.html#casa-della-luna">Casa della Luna</a></li>
+          <li><a href="strutture.html#il-giardino-segreto">Il Giardino Segreto</a></li>
+          <li><a href="strutture.html#podere-le-cantine">Podere Le Cantine</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__title">Contatti</h2>
+        <ul class="footer__list">
+          <li><a href="mailto:info@borgoulivi.it">info@borgoulivi.it</a></li>
+          <li><a href="tel:+390577123456">+39 0577 123456</a></li>
+          <li>Via delle Colline 12<br>53037 San Gimignano (SI)</li>
+          <li><a href="contatti.html#richiesta">Richiedi disponibilità</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>&copy; <span data-year>2026</span> Borgo &amp; Ulivi — P.IVA 01234567890</p>
+      <p>Sito dimostrativo · immagini illustrative · <a href="contatti.html">Privacy e cookie</a></p>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Galleria fotografica" aria-hidden="true">
+    <div class="lightbox__bar">
+      <span class="lightbox__counter">1 / 1</span>
+      <button class="lightbox__close" type="button" aria-label="Chiudi la galleria">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <div class="lightbox__stage">
+      <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Foto precedente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <img class="lightbox__img" src="assets/img/hero.svg" alt="">
+      <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Foto successiva">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+    <p class="lightbox__caption"></p>
+  </div>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

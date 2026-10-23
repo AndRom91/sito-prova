@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tuo-utente.github.io/sito-prova/sitemap.xml

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="g5">
+  <title id="g5">Sdraio e ombrellone a bordo piscina con ulivi sullo sfondo</title>
+  <defs>
+    <linearGradient id="g5sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8ecd4"/>
+      <stop offset="1" stop-color="#efd9b6"/>
+    </linearGradient>
+    <linearGradient id="g5pool" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9cc6ba"/>
+      <stop offset="1" stop-color="#5f9690"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g5sky)"/>
+  <rect y="252" width="800" height="120" fill="#8f9567"/>
+  <rect y="360" width="800" height="52" fill="#d8c9a9"/>
+  <rect y="412" width="800" height="188" fill="url(#g5pool)"/>
+  <g stroke="#eef8f3" stroke-width="3" fill="none" opacity="0.5">
+    <path d="M-20 470c60-18 120-18 180 0s120 18 180 0 120-18 180 0 120 18 180 0 120-18 180 0"/>
+    <path d="M-20 530c60-18 120-18 180 0s120 18 180 0 120-18 180 0 120 18 180 0 120-18 180 0"/>
+  </g>
+
+  <g fill="#3f4630">
+    <path d="M96 372c-12-28-17-76-11-118 3-26 8-46 11-56 3 10 8 30 11 56 6 42 0 90-11 118z"/>
+    <path d="M686 382c-10-24-14-64-9-100 2-22 6-39 9-47 3 8 7 25 9 47 5 36 0 76-9 100z"/>
+  </g>
+
+  <g transform="translate(470 130)">
+    <rect x="96" y="70" width="8" height="252" fill="#8b6a4a"/>
+    <path d="M-8 74h216L100-30z" fill="#b4552f"/>
+    <path d="M100-30 208 74H100z" fill="#f0e2c8" opacity="0.28"/>
+  </g>
+
+  <g transform="translate(120 330)">
+    <path d="M0 90h150l-14-30H14z" fill="#f7efdd"/>
+    <rect x="10" y="90" width="8" height="40" fill="#b8a184"/>
+    <rect x="132" y="90" width="8" height="40" fill="#b8a184"/>
+    <path d="M150 60h60l-8 30h-52z" fill="#e8d9bd"/>
+    <rect x="176" y="30" width="8" height="34" fill="#b8a184"/>
+  </g>
+
+  <g transform="translate(430 330)">
+    <path d="M0 90h150l-14-30H14z" fill="#f7efdd"/>
+    <rect x="10" y="90" width="8" height="40" fill="#b8a184"/>
+    <rect x="132" y="90" width="8" height="40" fill="#b8a184"/>
+    <path d="M150 60h60l-8 30h-52z" fill="#e8d9bd"/>
+    <rect x="176" y="30" width="8" height="34" fill="#b8a184"/>
+  </g>
+</svg>

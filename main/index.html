@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Borgo &amp; Ulivi — Hub di B&amp;B in Toscana</title>
+  <meta name="description" content="Borgo & Ulivi riunisce quattro bed & breakfast in Toscana: camere curate, colazioni genuine e ospitalità di famiglia tra San Gimignano, Val d'Orcia, Lucca e Chianti.">
+  <meta name="theme-color" content="#f8f4ec">
+  <link rel="canonical" href="https://tuo-utente.github.io/sito-prova/">
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:site_name" content="Borgo & Ulivi">
+  <meta property="og:title" content="Borgo & Ulivi — Hub di B&B in Toscana">
+  <meta property="og:description" content="Quattro bed & breakfast, un'unica idea di ospitalità: camere curate, colazioni genuine e silenzi da ricordare.">
+  <meta property="og:image" content="assets/img/hero.svg">
+  <meta property="og:url" content="https://tuo-utente.github.io/sito-prova/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>document.documentElement.classList.add('js');</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "Borgo & Ulivi",
+    "description": "Hub di quattro bed & breakfast in Toscana: Villa degli Ulivi, Casa della Luna, Il Giardino Segreto e Podere Le Cantine.",
+    "url": "https://tuo-utente.github.io/sito-prova/",
+    "image": "https://tuo-utente.github.io/sito-prova/assets/img/hero.svg",
+    "email": "info@borgoulivi.it",
+    "telephone": "+39 0577 123456",
+    "priceRange": "€€",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via delle Colline 12",
+      "addressLocality": "San Gimignano",
+      "addressRegion": "Toscana",
+      "postalCode": "53037",
+      "addressCountry": "IT"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#contenuto">Vai al contenuto principale</a>
+
+  <header class="site-header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html">
+        <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <path d="M15 53V31a17 17 0 0 1 34 0v22" fill="none" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="32" cy="31" r="7" fill="#b4552f" stroke="none"/>
+          <path d="M15 53h34" fill="none" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <span>Borgo &amp; Ulivi<small>Bed &amp; Breakfast</small></span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principale" aria-label="Apri il menu">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+      </button>
+
+      <nav class="nav" id="menu-principale" aria-label="Navigazione principale">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html" aria-current="page">Home</a></li>
+          <li><a class="nav__link" href="strutture.html">Strutture</a></li>
+          <li><a class="nav__link" href="galleria.html">Galleria</a></li>
+          <li><a class="nav__link" href="contatti.html">Contatti</a></li>
+        </ul>
+        <a class="btn btn--primary nav__cta" href="contatti.html#richiesta">Verifica disponibilità</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenuto">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__media">
+        <img src="assets/img/hero.svg" alt="Colline toscane al tramonto con cipressi e una villa tra gli ulivi" fetchpriority="high">
+      </div>
+
+      <div class="container">
+        <div class="hero__content">
+          <p class="eyebrow eyebrow--light">Toscana · dal 1998</p>
+          <h1 class="hero__title" id="hero-title">Dormire bene,<br><em>sentirsi a casa.</em></h1>
+          <p class="hero__text">
+            Quattro bed &amp; breakfast scelti uno per uno, tra colline, borghi e vigne.
+            Un unico modo di accogliere: senza fretta, con una colazione vera e il tempo di consigliarti la strada giusta.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="strutture.html">
+              Scopri le strutture
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn--light" href="contatti.html">Scrivici</a>
+          </div>
+        </div>
+      </div>
+
+      <span class="hero__scroll" aria-hidden="true">Scorri</span>
+    </section>
+
+    <!-- Numeri -->
+    <section class="stats" aria-label="Il nostro hub in numeri">
+      <div class="container">
+        <div class="stats__grid">
+          <div class="stats__item">
+            <span class="stats__value">4</span>
+            <span class="stats__label">Strutture</span>
+          </div>
+          <div class="stats__item">
+            <span class="stats__value">22</span>
+            <span class="stats__label">Camere</span>
+          </div>
+          <div class="stats__item">
+            <span class="stats__value">4.9</span>
+            <span class="stats__label">Valutazione media</span>
+          </div>
+          <div class="stats__item">
+            <span class="stats__value">100%</span>
+            <span class="stats__label">Colazione inclusa</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strutture in evidenza -->
+    <section class="section" aria-labelledby="strutture-title">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <p class="eyebrow">Le nostre case</p>
+            <h2 class="section__title" id="strutture-title">Quattro indirizzi, <em>una sola famiglia</em></h2>
+            <p class="section__lead">
+              Ogni struttura ha la sua anima: una villa con piscina, una casa di borgo, un giardino nascosto,
+              un podere tra le vigne. Scegli quella che somiglia di più al tuo viaggio.
+            </p>
+          </div>
+          <a class="link-arrow" href="strutture.html">
+            Tutte le strutture
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <div class="cards">
+          <article class="card reveal" style="--delay: 0ms">
+            <div class="card__media">
+              <img src="assets/img/struttura-1.svg" alt="Piscina e ulivi di Villa degli Ulivi" loading="lazy" width="800" height="600">
+              <span class="card__tag">Con piscina</span>
+            </div>
+            <div class="card__body">
+              <p class="card__meta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.6"/></svg>
+                San Gimignano
+              </p>
+              <h3 class="card__title">Villa degli Ulivi</h3>
+              <p class="card__text">Sei camere affacciate sulle colline, piscina all'ombra degli ulivi e colazione servita in giardino.</p>
+              <div class="card__foot">
+                <p class="card__price"><strong>€120</strong>a notte, colazione inclusa</p>
+                <a class="link-arrow" href="strutture.html#villa-degli-ulivi">Dettagli</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card reveal" style="--delay: 70ms">
+            <div class="card__media">
+              <img src="assets/img/struttura-2.svg" alt="Camera con letto matrimoniale e finestra ad arco di Casa della Luna" loading="lazy" width="800" height="600">
+              <span class="card__tag">Borgo storico</span>
+            </div>
+            <div class="card__body">
+              <p class="card__meta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.6"/></svg>
+                Pienza · Val d'Orcia
+              </p>
+              <h3 class="card__title">Casa della Luna</h3>
+              <p class="card__text">Nel cuore del borgo, quattro stanze raccolte con travi a vista e una vista che sembra un quadro.</p>
+              <div class="card__foot">
+                <p class="card__price"><strong>€95</strong>a notte, colazione inclusa</p>
+                <a class="link-arrow" href="strutture.html#casa-della-luna">Dettagli</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card reveal" style="--delay: 140ms">
+            <div class="card__media">
+              <img src="assets/img/struttura-3.svg" alt="Cortile in pietra con arco e piante de Il Giardino Segreto" loading="lazy" width="800" height="600">
+              <span class="card__tag">Giardino privato</span>
+            </div>
+            <div class="card__body">
+              <p class="card__meta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.6"/></svg>
+                Lucca
+              </p>
+              <h3 class="card__title">Il Giardino Segreto</h3>
+              <p class="card__text">Dietro il portone, un cortile di pietra con limoni in vaso: cinque camere e nessun rumore.</p>
+              <div class="card__foot">
+                <p class="card__price"><strong>€110</strong>a notte, colazione inclusa</p>
+                <a class="link-arrow" href="strutture.html#il-giardino-segreto">Dettagli</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card reveal" style="--delay: 210ms">
+            <div class="card__media">
+              <img src="assets/img/struttura-4.svg" alt="Filari di vigna al tramonto con il casale di Podere Le Cantine" loading="lazy" width="800" height="600">
+              <span class="card__tag">Tra le vigne</span>
+            </div>
+            <div class="card__body">
+              <p class="card__meta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.6"/></svg>
+                Greve in Chianti
+              </p>
+              <h3 class="card__title">Podere Le Cantine</h3>
+              <p class="card__text">Sette camere in un casale del Settecento, con degustazioni in cantina e tramonti sui filari.</p>
+              <div class="card__foot">
+                <p class="card__price"><strong>€135</strong>a notte, colazione inclusa</p>
+                <a class="link-arrow" href="strutture.html#podere-le-cantine">Dettagli</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Perché sceglierci -->
+    <section class="section section--tinted" aria-labelledby="perche-title">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <p class="eyebrow">Come lavoriamo</p>
+            <h2 class="section__title" id="perche-title">Piccole cose, <em>fatte bene</em></h2>
+          </div>
+        </div>
+
+        <div class="features">
+          <article class="feature reveal">
+            <span class="feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h13a3 3 0 0 1 3 3v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V7z" stroke-linejoin="round"/><path d="M4 11h16" stroke-linecap="round"/><path d="M7 17v3M17 17v3" stroke-linecap="round"/></svg>
+            </span>
+            <h3>Colazione vera</h3>
+            <p>Pane del forno del paese, torte fatte la mattina, yogurt e marmellate di casa. Servita fino alle 10:30.</p>
+          </article>
+
+          <article class="feature reveal" style="--delay: 70ms">
+            <span class="feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11.5 12 4l9 7.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 10.5V20h13v-9.5" stroke-linejoin="round"/><path d="M10 20v-5h4v5" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Case curate</h3>
+            <p>Camere con biancheria di lino, letti comodi, luce calda. Niente televisione in camera, se non la chiedi.</p>
+          </article>
+
+          <article class="feature reveal" style="--delay: 140ms">
+            <span class="feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v4l3 2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Tempo e consigli</h3>
+            <p>Check-in flessibile, mappe disegnate a mano e le trattorie dove andremmo noi. Nessun itinerario obbligato.</p>
+          </article>
+
+          <article class="feature reveal" style="--delay: 210ms">
+            <span class="feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s6-4.4 6-9a6 6 0 1 0-12 0c0 4.6 6 9 6 9z" stroke-linejoin="round"/><path d="M12 13.5V8" stroke-linecap="round"/><path d="M9.5 10.5 12 8l2.5 2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Un hub, non un gruppo</h3>
+            <p>Quattro indirizzi indipendenti che si passano gli ospiti: prenoti da uno e ti accogliamo in tutti.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Citazione -->
+    <section class="quote-band" aria-label="Recensione degli ospiti">
+      <div class="container container--narrow">
+        <blockquote class="reveal">
+          <p>“Siamo arrivati per due notti e siamo rimasti una settimana. Non è un albergo: è la casa di qualcuno che ti vuole bene.”</p>
+          <footer>Marta e Luca · Bologna</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Anteprima galleria -->
+    <section class="section" aria-labelledby="galleria-title">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <p class="eyebrow">Sguardi</p>
+            <h2 class="section__title" id="galleria-title">Un assaggio <em>di casa</em></h2>
+            <p class="section__lead">Piscine, stanze, colazioni e terrazze: le immagini raccontano meglio di qualsiasi descrizione.</p>
+          </div>
+          <a class="link-arrow" href="galleria.html">
+            Vai alla galleria
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <div class="gallery-grid">
+          <a class="gallery__item reveal" href="galleria.html">
+            <img src="assets/img/struttura-1.svg" alt="Piscina di Villa degli Ulivi con ulivi intorno" loading="lazy" width="800" height="600">
+            <span class="gallery__caption">Villa degli Ulivi</span>
+          </a>
+          <a class="gallery__item reveal" href="galleria.html" style="--delay: 60ms">
+            <img src="assets/img/galleria-2.svg" alt="Porta ad arco con tenda di lino" loading="lazy" width="800" height="600">
+            <span class="gallery__caption">Le camere</span>
+          </a>
+          <a class="gallery__item reveal" href="galleria.html" style="--delay: 120ms">
+            <img src="assets/img/galleria-3.svg" alt="Tavolo della colazione con tazzine e cornetto" loading="lazy" width="800" height="600">
+            <span class="gallery__caption">La colazione</span>
+          </a>
+          <a class="gallery__item reveal" href="galleria.html" style="--delay: 0ms">
+            <img src="assets/img/struttura-3.svg" alt="Cortile in pietra con arco e piante" loading="lazy" width="800" height="600">
+            <span class="gallery__caption">Il Giardino Segreto</span>
+          </a>
+          <a class="gallery__item reveal" href="galleria.html" style="--delay: 60ms">
+            <img src="assets/img/galleria-4.svg" alt="Terrazza al tramonto con pergolato e sedie" loading="lazy" width="800" height="600">
+            <span class="gallery__caption">Tramonti</span>
+          </a>
+          <a class="gallery__item reveal" href="galleria.html" style="--delay: 120ms">
+            <img src="assets/img/struttura-4.svg" alt="Filari di vigna al tramonto" loading="lazy" width="800" height="600">
+            <span class="gallery__caption">Le vigne</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="container cta__inner">
+        <div>
+          <h2 id="cta-title">Dicci le date, al resto pensiamo noi.</h2>
+          <p>Rispondiamo entro un giorno lavorativo, con disponibilità reali e un consiglio sincero su dove stare meglio.</p>
+        </div>
+        <a class="btn btn--dark" href="contatti.html#richiesta">
+          Richiedi disponibilità
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__main">
+      <div>
+        <a class="footer__brand" href="index.html">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M15 53V31a17 17 0 0 1 34 0v22" fill="none" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="32" cy="31" r="7" fill="#b4552f" stroke="none"/>
+            <path d="M15 53h34" fill="none" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          Borgo &amp; Ulivi
+        </a>
+        <p class="footer__about">
+          Un hub di quattro bed &amp; breakfast in Toscana, gestiti da famiglie che si conoscono da trent'anni.
+          Ospitalità semplice, colazioni lunghe, strade poco battute.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="footer__title">Esplora</h2>
+        <ul class="footer__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="strutture.html">Strutture</a></li>
+          <li><a href="galleria.html">Galleria</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__title">Strutture</h2>
+        <ul class="footer__list">
+          <li><a href="strutture.html#villa-degli-ulivi">Villa degli Ulivi</a></li>
+          <li><a href="strutture.html#casa-della-luna">Casa della Luna</a></li>
+          <li><a href="strutture.html#il-giardino-segreto">Il Giardino Segreto</a></li>
+          <li><a href="strutture.html#podere-le-cantine">Podere Le Cantine</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__title">Contatti</h2>
+        <ul class="footer__list">
+          <li><a href="mailto:info@borgoulivi.it">info@borgoulivi.it</a></li>
+          <li><a href="tel:+390577123456">+39 0577 123456</a></li>
+          <li>Via delle Colline 12<br>53037 San Gimignano (SI)</li>
+          <li><a href="contatti.html#richiesta">Richiedi disponibilità</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>&copy; <span data-year>2026</span> Borgo &amp; Ulivi — P.IVA 01234567890</p>
+      <p>Sito dimostrativo · immagini illustrative · <a href="contatti.html">Privacy e cookie</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

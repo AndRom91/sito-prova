@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="g6">
+  <title id="g6">Tavolo apparecchiato in terrazza con frutta, caffè e luce del mattino</title>
+  <defs>
+    <linearGradient id="g6bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#efe0c6"/>
+      <stop offset="1" stop-color="#dcc8a4"/>
+    </linearGradient>
+    <linearGradient id="g6cloth" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffdf8"/>
+      <stop offset="1" stop-color="#f0e6d2"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g6bg)"/>
+  <g stroke="#c7ad86" stroke-width="3" opacity="0.6">
+    <path d="M0 60h800M0 140h800"/>
+    <path d="M120 0v60M320 60v80M560 0v60M720 60v80"/>
+  </g>
+
+  <g transform="translate(0 120)">
+    <rect x="60" y="70" width="680" height="420" rx="16" fill="url(#g6cloth)"/>
+    <path d="M60 190h680M60 330h680" stroke="#e6d8bd" stroke-width="2"/>
+  </g>
+
+  <g transform="translate(150 250)">
+    <ellipse cx="120" cy="170" rx="170" ry="26" fill="#cfbb96" opacity="0.4"/>
+    <path d="M28 70h184v58a92 92 0 0 1-184 0z" fill="#f8f1e2"/>
+    <ellipse cx="120" cy="70" rx="92" ry="24" fill="#b4552f"/>
+    <g fill="#d98a4a">
+      <circle cx="96" cy="62" r="16"/>
+      <circle cx="132" cy="58" r="18"/>
+      <circle cx="158" cy="70" r="14"/>
+      <circle cx="112" cy="82" r="15"/>
+    </g>
+    <circle cx="134" cy="76" r="13" fill="#a8452a"/>
+    <path d="M120 40c10-14 20-16 28-12-4 12-14 18-28 12z" fill="#6b7048"/>
+  </g>
+
+  <g transform="translate(500 300)">
+    <ellipse cx="60" cy="92" rx="76" ry="18" fill="#cfbb96" opacity="0.4"/>
+    <path d="M22 30h56v34a28 28 0 0 1-56 0z" fill="#fffdf9"/>
+    <path d="M78 40h14a16 16 0 0 1 0 32H78" fill="none" stroke="#fffdf9" stroke-width="9"/>
+    <ellipse cx="50" cy="30" rx="28" ry="8" fill="#6f4a2f"/>
+  </g>
+
+  <g transform="translate(520 400)">
+    <rect x="0" y="30" width="90" height="58" rx="8" fill="#c9803f"/>
+    <rect x="8" y="38" width="74" height="42" rx="5" fill="#8c3c2a"/>
+    <rect x="36" y="16" width="18" height="18" rx="4" fill="#e6d3b4"/>
+  </g>
+
+  <g transform="translate(230 420)">
+    <path d="M0 60c20-20 40-20 60 0s40 20 60 0" fill="none" stroke="#c7b28c" stroke-width="4"/>
+    <rect x="-10" y="10" width="140" height="54" rx="8" fill="#e8d6b6"/>
+    <rect x="0" y="20" width="120" height="34" rx="6" fill="#f8f1e2"/>
+  </g>
+
+  <g fill="#6b7048" opacity="0.9">
+    <rect x="676" y="110" width="8" height="90" rx="4"/>
+    <circle cx="680" cy="92" r="30"/>
+    <circle cx="652" cy="112" r="20"/>
+    <circle cx="708" cy="112" r="20"/>
+  </g>
+  <circle cx="680" cy="92" r="10" fill="#c99a4b"/>
+</svg>
