@@ -1,3 +1,12 @@
+# Dipendenze
+node_modules/
+
+# Build Next.js
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
 # Sistema
 .DS_Store
 Thumbs.db
@@ -10,3 +19,6 @@ desktop.ini
 # Log e file temporanei
 *.log
 *.tmp
+
+# Variabili d'ambiente locali
+.env*.local
