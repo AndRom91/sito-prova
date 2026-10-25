@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Rooms Hub — Case e camere tra Salerno, Costiera Amalfitana e Cilento
+   CORA — A World of Possibilities
    Foglio di stile principale
    ========================================================================== */
 
@@ -7,29 +7,29 @@
    1. Design tokens
    -------------------------------------------------------------------------- */
 :root {
-  --cream: #fbf9f3;
-  --cream-dark: #f1eee2;
-  --sand: #e4dfcf;
-  --ink: #1b1b40;
-  --ink-soft: #39395c;
-  --ink-muted: #5b5b78;
-  --sea: #0b6c92;
-  --sea-dark: #07506e;
-  --green: #2c7a4b;
-  --sun: #f7c600;
-  --line: rgba(27, 27, 64, 0.14);
-  --white: #fffefa;
+  --cream: #f4efe6;
+  --cream-dark: #eae1d4;
+  --sand: #d8c7b4;
+  --ink: #111111;
+  --ink-soft: #2a2a2a;
+  --ink-muted: #6f6a63;
+  --sea: #111111;
+  --sea-dark: #000000;
+  --green: #6f6a63;
+  --sun: #d8c7b4;
+  --line: rgba(17, 17, 17, 0.14);
+  --white: #fffdf8;
 
-  --font-display: var(--font-playfair), "Georgia", "Times New Roman", serif;
+  --font-display: var(--font-jost), "Helvetica Neue", Arial, sans-serif;
   --font-body: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   --radius-sm: 6px;
   --radius: 14px;
   --radius-lg: 26px;
 
-  --shadow-sm: 0 2px 10px rgba(27, 27, 64, 0.07);
-  --shadow: 0 18px 40px -22px rgba(27, 27, 64, 0.35);
-  --shadow-lg: 0 40px 80px -40px rgba(27, 27, 64, 0.5);
+  --shadow-sm: 0 2px 10px rgba(17, 17, 17, 0.06);
+  --shadow: 0 18px 40px -22px rgba(17, 17, 17, 0.28);
+  --shadow-lg: 0 40px 80px -40px rgba(17, 17, 17, 0.4);
 
   --container: 1180px;
   --header-h: 78px;
@@ -262,12 +262,12 @@ p {
 }
 
 .btn--primary {
-  background: var(--sun);
-  color: var(--ink);
+  background: var(--ink);
+  color: var(--cream);
 }
 
 .btn--primary:hover {
-  background: #e6b800;
+  background: #2a2a2a;
 }
 
 .btn--dark {
@@ -276,11 +276,11 @@ p {
 }
 
 .btn--dark:hover {
-  background: #2b2b55;
+  background: #2a2a2a;
 }
 
 .btn--ghost {
-  border-color: rgba(27, 27, 64, 0.25);
+  border-color: rgba(17, 17, 17, 0.25);
   color: var(--ink);
 }
 
@@ -291,7 +291,7 @@ p {
 }
 
 .btn--light {
-  border-color: rgba(255, 254, 250, 0.45);
+  border-color: rgba(255, 253, 248, 0.45);
   color: var(--white);
 }
 
@@ -333,7 +333,7 @@ p {
   position: sticky;
   top: 0;
   z-index: 90;
-  background: rgba(251, 249, 243, 0.86);
+  background: rgba(244, 239, 230, 0.88);
   border-bottom: 1px solid transparent;
   backdrop-filter: blur(14px);
   transition: background-color 0.3s var(--ease), border-color 0.3s var(--ease),
@@ -342,7 +342,7 @@ p {
 
 .site-header.is-scrolled {
   border-bottom-color: var(--line);
-  box-shadow: 0 10px 30px -24px rgba(27, 27, 64, 0.65);
+  box-shadow: 0 10px 30px -24px rgba(17, 17, 17, 0.5);
 }
 
 .header__inner {
@@ -362,12 +362,6 @@ p {
   font-weight: 600;
   letter-spacing: -0.01em;
   white-space: nowrap;
-}
-
-.brand__mark {
-  width: 38px;
-  height: 38px;
-  flex-shrink: 0;
 }
 
 .brand small {
@@ -502,12 +496,6 @@ p {
     max(1.15rem, calc((100vw - var(--container)) / 2 + clamp(1.15rem, 4vw, 2.5rem)));
 }
 
-.hero__logo {
-  width: clamp(180px, 21vw, 268px);
-  height: auto;
-  margin-bottom: clamp(1.2rem, 3vw, 1.7rem);
-}
-
 .hero__title {
   font-size: clamp(2.7rem, 1.6rem + 4.2vw, 4.9rem);
   line-height: 1.02;
@@ -578,7 +566,7 @@ p {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(15, 15, 45, 0.55), transparent 48%);
+  background: linear-gradient(to top, rgba(17, 17, 17, 0.55), transparent 48%);
   pointer-events: none;
 }
 
@@ -589,7 +577,7 @@ p {
   z-index: 1;
   padding: 0.8rem 1.15rem;
   border-radius: var(--radius-sm);
-  background: rgba(255, 254, 250, 0.93);
+  background: rgba(255, 253, 248, 0.93);
   color: var(--ink-soft);
   font-size: 0.68rem;
   font-weight: 600;
@@ -708,7 +696,7 @@ p {
   top: 0.9rem;
   left: 0.9rem;
   padding: 0.35rem 0.75rem;
-  background: rgba(255, 254, 250, 0.92);
+  background: rgba(255, 253, 248, 0.92);
   border-radius: 999px;
   color: var(--ink);
   font-size: 0.68rem;
@@ -796,7 +784,7 @@ p {
 
 .card--cta .card__text {
   flex: 0;
-  color: rgba(251, 249, 243, 0.72);
+  color: rgba(244, 239, 230, 0.72);
 }
 
 .card--cta .eyebrow {
@@ -867,7 +855,7 @@ p {
   position: absolute;
   width: 320px;
   height: 320px;
-  border: 1px solid rgba(247, 198, 0, 0.22);
+  border: 1px solid rgba(216, 199, 180, 0.22);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -898,7 +886,7 @@ p {
 
 .quote-band footer {
   margin-top: 1.6rem;
-  color: rgba(251, 249, 243, 0.65);
+  color: rgba(244, 239, 230, 0.65);
   font-size: 0.76rem;
   font-weight: 500;
   letter-spacing: 0.18em;
@@ -935,7 +923,7 @@ p {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(15, 15, 45, 0.55), transparent 55%);
+  background: linear-gradient(to top, rgba(17, 17, 17, 0.55), transparent 55%);
   opacity: 0;
   transition: opacity 0.35s var(--ease);
 }
@@ -1010,8 +998,8 @@ p {
   padding-block: clamp(3rem, 7vw, 5.2rem) clamp(2rem, 4vw, 3rem);
   border-bottom: 1px solid var(--line);
   background:
-    radial-gradient(60% 120% at 85% 0%, rgba(247, 198, 0, 0.14), transparent 60%),
-    radial-gradient(50% 100% at 0% 100%, rgba(44, 122, 75, 0.1), transparent 60%),
+    radial-gradient(60% 120% at 85% 0%, rgba(216, 199, 180, 0.14), transparent 60%),
+    radial-gradient(50% 100% at 0% 100%, rgba(17, 17, 17, 0.1), transparent 60%),
     var(--cream);
 }
 
@@ -1081,7 +1069,7 @@ p {
   right: 1rem;
   bottom: 1rem;
   padding: 0.3rem 0.8rem;
-  background: rgba(255, 254, 250, 0.9);
+  background: rgba(255, 253, 248, 0.9);
   border-radius: 999px;
   color: var(--ink);
   font-family: var(--font-display);
@@ -1295,18 +1283,18 @@ p {
   outline: none;
   background: var(--white);
   border-color: var(--sea);
-  box-shadow: 0 0 0 3px rgba(11, 108, 146, 0.15);
+  box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.15);
 }
 
 .field input[aria-invalid="true"],
 .field select[aria-invalid="true"],
 .field textarea[aria-invalid="true"] {
-  border-color: #b3261e;
+  border-color: #111111;
 }
 
 .field__error {
   min-height: 1rem;
-  color: #b3261e;
+  color: #111111;
   font-size: 0.72rem;
 }
 
@@ -1345,7 +1333,7 @@ p {
   margin-top: 1rem;
   padding: 0.85rem 1rem;
   border-left: 2px solid var(--green);
-  background: rgba(44, 122, 75, 0.08);
+  background: rgba(17, 17, 17, 0.08);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   color: var(--ink-soft);
   font-size: 0.82rem;
@@ -1364,15 +1352,15 @@ p {
 }
 
 .form-status--ok {
-  background: rgba(44, 122, 75, 0.12);
-  border: 1px solid rgba(44, 122, 75, 0.3);
-  color: #4d5232;
+  background: rgba(17, 17, 17, 0.12);
+  border: 1px solid rgba(17, 17, 17, 0.3);
+  color: #111111;
 }
 
 .form-status--error {
-  background: rgba(179, 38, 30, 0.08);
-  border: 1px solid rgba(179, 38, 30, 0.25);
-  color: #8f1f19;
+  background: rgba(17, 17, 17, 0.08);
+  border: 1px solid rgba(17, 17, 17, 0.25);
+  color: #111111;
 }
 
 .map-wrap {
@@ -1483,7 +1471,7 @@ p {
   right: -8%;
   width: min(46vw, 520px);
   aspect-ratio: 1;
-  border: 1px solid rgba(27, 27, 64, 0.2);
+  border: 1px solid rgba(17, 17, 17, 0.2);
   border-radius: 50%;
   transform: translateY(-50%);
   pointer-events: none;
@@ -1515,8 +1503,8 @@ p {
    17. Footer
    -------------------------------------------------------------------------- */
 .site-footer {
-  background: #14142e;
-  color: rgba(251, 249, 243, 0.72);
+  background: #111111;
+  color: rgba(244, 239, 230, 0.72);
   font-size: 0.88rem;
 }
 
@@ -1534,10 +1522,6 @@ p {
   color: var(--cream);
   font-family: var(--font-display);
   font-size: 1.45rem;
-}
-
-.footer__brand .brand__mark {
-  color: var(--sun);
 }
 
 .footer__about {
@@ -1576,9 +1560,9 @@ p {
   justify-content: space-between;
   gap: 0.75rem 2rem;
   padding-block: 1.4rem;
-  border-top: 1px solid rgba(251, 249, 243, 0.12);
+  border-top: 1px solid rgba(244, 239, 230, 0.12);
   font-size: 0.76rem;
-  color: rgba(251, 249, 243, 0.5);
+  color: rgba(244, 239, 230, 0.5);
 }
 
 /* --------------------------------------------------------------------------
@@ -1590,7 +1574,7 @@ p {
   z-index: 150;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  background: rgba(12, 12, 32, 0.96);
+  background: rgba(10, 10, 10, 0.96);
   color: var(--cream);
   opacity: 0;
   visibility: hidden;
@@ -1614,7 +1598,7 @@ p {
 }
 
 .lightbox__counter {
-  color: rgba(251, 249, 243, 0.6);
+  color: rgba(244, 239, 230, 0.6);
 }
 
 .lightbox__close {
@@ -1622,7 +1606,7 @@ p {
   place-items: center;
   width: 42px;
   height: 42px;
-  border: 1px solid rgba(251, 249, 243, 0.25);
+  border: 1px solid rgba(244, 239, 230, 0.25);
   border-radius: 50%;
   color: var(--cream);
   transition: background-color 0.2s var(--ease), color 0.2s var(--ease);
@@ -1661,7 +1645,7 @@ p {
   place-items: center;
   width: 46px;
   height: 46px;
-  border: 1px solid rgba(251, 249, 243, 0.28);
+  border: 1px solid rgba(244, 239, 230, 0.28);
   border-radius: 50%;
   color: var(--cream);
   transform: translateY(-50%);
@@ -1689,7 +1673,7 @@ p {
 .lightbox__caption {
   padding: 0.9rem clamp(1rem, 3vw, 2rem) 1.4rem;
   text-align: center;
-  color: rgba(251, 249, 243, 0.7);
+  color: rgba(244, 239, 230, 0.7);
   font-size: 0.82rem;
 }
 
@@ -1785,7 +1769,7 @@ body.no-scroll {
     padding: 1.25rem clamp(1.15rem, 4vw, 2.5rem) 2rem;
     background: var(--cream);
     border-bottom: 1px solid var(--line);
-    box-shadow: 0 30px 60px -30px rgba(27, 27, 64, 0.5);
+    box-shadow: 0 30px 60px -30px rgba(17, 17, 17, 0.5);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
@@ -1827,10 +1811,6 @@ body.no-scroll {
 }
 
 @media (max-width: 720px) {
-  .hero__logo {
-    width: 190px;
-  }
-
   .stats__grid {
     grid-template-columns: repeat(2, 1fr);
   }

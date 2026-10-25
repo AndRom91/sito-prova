@@ -1,8 +1,8 @@
 import type { StaticImageData } from "next/image";
 
 import colazioneLetto from "@/assets/images/colazione-letto.jpg";
-import colazioneTavola from "@/assets/images/colazione-tavola.jpg";
-import colazioneTerrazza from "@/assets/images/colazione-terrazza.jpg";
+import coraColazioneTerrazza from "@/assets/images/cora-colazione-terrazza.jpg";
+import coraLiving from "@/assets/images/cora-living.jpg";
 import costiera from "@/assets/images/costiera.jpg";
 import heroVietri from "@/assets/images/hero-vietri.jpg";
 import leucosiaScale from "@/assets/images/leucosia-scale.jpg";
@@ -49,7 +49,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "colazione-terrazza",
-    image: colazioneTerrazza,
+    image: coraColazioneTerrazza,
     alt: "Tavolo apparecchiato per la colazione su una terrazza vista mare",
     caption: "Colazione in terrazza",
     lightboxCaption: "La colazione in terrazza, con il mare davanti",
@@ -81,7 +81,7 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "colazione-tavola",
-    image: colazioneTavola,
+    image: coraLiving,
     alt: "Tavolo con cornetti, succhi e caffè vista mare",
     caption: "La tavola del mattino",
     lightboxCaption: "La tavola del mattino: cornetti, succhi e caffè",

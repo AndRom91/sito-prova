@@ -1,6 +1,5 @@
-import Link from "next/link";
+import { Link } from "@/components/link";
 
-import { BrandMark } from "@/components/brand-mark";
 import { navigation } from "@/data/navigation";
 import { siteConfig, socials } from "@/data/site";
 import { structures } from "@/data/structures";
@@ -12,13 +11,12 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="container footer__main">
         <div>
-          <Link className="footer__brand" href="/">
-            <BrandMark />
-            Rooms Hub
+          <Link className="footer__brand footer__brand--cora" href="/">
+            CORA
           </Link>
           <p className="footer__about">
-            Case e camere tra Salerno, la Costiera Amalfitana e il Cilento. Un
-            unico modo di accogliere: con calma, con cura, come a casa.
+            A world of possibilities: ospitalità, moda, lifestyle e nuovi
+            progetti. Un unico modo di guardare avanti, con calma e con cura.
           </p>
         </div>
 
@@ -34,11 +32,11 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h2 className="footer__title">Strutture</h2>
+          <h2 className="footer__title">CORA STAYS</h2>
           <ul className="footer__list">
             {structures.map((structure) => (
               <li key={structure.id}>
-                <Link href={`/strutture/#${structure.id}`}>
+                <Link href={`/stays/strutture/#${structure.id}`}>
                   {structure.title}
                 </Link>
               </li>
@@ -66,7 +64,9 @@ export function SiteFooter() {
               </a>
             </li>
             <li>
-              <Link href="/contatti/#richiesta">Richiedi disponibilità</Link>
+              <Link href="/stays/contatti/#richiesta">
+                Richiedi disponibilità
+              </Link>
             </li>
           </ul>
         </div>
@@ -74,12 +74,12 @@ export function SiteFooter() {
 
       <div className="container footer__bottom">
         <p>
-          &copy; {year} Rooms Hub — C.F. {siteConfig.legal.cf} · REA{" "}
+          &copy; {year} CORA — C.F. {siteConfig.legal.cf} · REA{" "}
           {siteConfig.legal.rea}
         </p>
         <p>
           Foto delle strutture e dei profili Instagram ·{" "}
-          <Link href="/contatti/">Privacy e cookie</Link>
+          <Link href="/stays/contatti/">Privacy e cookie</Link>
         </p>
       </div>
     </footer>

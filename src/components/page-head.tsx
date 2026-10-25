@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/components/link";
 import type { ReactNode } from "react";
 
 type PageHeadProps = {
@@ -13,7 +13,7 @@ export function PageHead({ eyebrow, title, text, current }: PageHeadProps) {
     <section className="page-head" aria-labelledby="page-title">
       <div className="container">
         <nav className="breadcrumb" aria-label="Percorso">
-          <Link href="/">Home</Link>
+          <Link href="/stays/">CORA STAYS</Link>
           <span aria-hidden="true">/</span>
           <span aria-current="page">{current}</span>
         </nav>

@@ -1,8 +1,8 @@
 {
-  "name": "rooms-hub",
+  "name": "cora",
   "version": "1.0.0",
   "private": true,
-  "description": "Rooms Hub — case e camere tra Salerno, Costiera Amalfitana e Cilento",
+  "description": "CORA — A World of Possibilities: hospitality, fashion, lifestyle and new ventures.",
   "scripts": {
     "dev": "next dev",
     "build": "next build && node scripts/postbuild.mjs",

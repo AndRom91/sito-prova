@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/components/link";
 
 import { galleryItemById, homeGalleryIds } from "@/data/gallery";
 import { revealDelay } from "@/lib/styles";
@@ -15,7 +15,7 @@ export function HomeGallery() {
         <Link
           key={item.id}
           className="gallery__item reveal"
-          href="/galleria/"
+          href="/stays/galleria/"
           style={revealDelay((index % 3) * 60)}
         >
           <Image

@@ -15,22 +15,46 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: absoluteUrl("/strutture/"),
+      url: absoluteUrl("/stays/"),
       lastModified,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: absoluteUrl("/galleria/"),
+      url: absoluteUrl("/stays/strutture/"),
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: absoluteUrl("/contatti/"),
+      url: absoluteUrl("/stays/galleria/"),
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: absoluteUrl("/stays/contatti/"),
       lastModified,
       changeFrequency: "yearly",
       priority: 0.7,
+    },
+    {
+      url: absoluteUrl("/wears/"),
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: absoluteUrl("/living/"),
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: absoluteUrl("/projects/"),
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.5,
     },
   ];
 }

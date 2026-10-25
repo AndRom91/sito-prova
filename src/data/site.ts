@@ -1,16 +1,14 @@
 export const siteConfig = {
-  name: "Rooms Hub",
-  title:
-    "Rooms Hub — Case e camere tra Salerno, Costiera Amalfitana e Cilento",
+  name: "CORA",
+  title: "CORA — A World of Possibilities",
   description:
-    "Rooms Hub riunisce cinque indirizzi tra Salerno, Vietri sul Mare, la Costiera Amalfitana e il Cilento: camere e appartamenti curati, prenotazione diretta e il 15% di sconto dal sito.",
+    "CORA è un mondo di possibilità: ospitalità, moda, lifestyle e nuovi progetti. Scopri CORA STAYS, CORA WEARS, CORA LIVING e CORA PROJECTS.",
   shortDescription:
-    "Cinque indirizzi tra Salerno, la Costiera Amalfitana e il Cilento. Camere, appartamenti e case vacanza con un unico modo di accogliere.",
+    "A world of possibilities: hospitality, fashion, lifestyle and new ventures.",
   url: (
     process.env.NEXT_PUBLIC_SITE_URL ??
     "https://androm91.github.io/sito-prova"
   ).replace(/\/$/, ""),
-  basePath: (process.env.NEXT_PUBLIC_BASE_PATH ?? "").replace(/\/$/, ""),
   email: "info@roomshub.it",
   phone: "+39 333 333 3333",
   phoneHref: "+393333333333",
@@ -24,7 +22,7 @@ export const siteConfig = {
 
 export const socials = [
   {
-    label: "Instagram Rooms Hub",
+    label: "Instagram CORA STAYS",
     handle: "@roomshub.it",
     href: "https://www.instagram.com/roomshub.it/",
   },

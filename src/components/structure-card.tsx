@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/components/link";
 
 import { Icon } from "@/components/icons";
 import type { Structure } from "@/data/structures";
@@ -32,7 +32,7 @@ export function StructureCard({ structure, delay }: StructureCardProps) {
           <p className="card__price">
             <strong>−15%</strong>prenotando dal sito
           </p>
-          <Link className="link-arrow" href={`/strutture/#${structure.id}`}>
+          <Link className="link-arrow" href={`/stays/strutture/#${structure.id}`}>
             Dettagli
             <Icon name="arrow" strokeWidth={1.8} />
           </Link>

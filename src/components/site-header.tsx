@@ -1,10 +1,9 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/components/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
-import { BrandMark } from "@/components/brand-mark";
 import { navigation } from "@/data/navigation";
 
 const normalizePath = (path: string) => path.replace(/\/$/, "") || "/";
@@ -77,12 +76,13 @@ export function SiteHeader() {
       className={`site-header${scrolled ? " is-scrolled" : ""}`}
     >
       <div className="container header__inner">
-        <Link className="brand" href="/" onClick={() => setMenuOpen(false)}>
-          <BrandMark />
-          <span>
-            Rooms Hub
-            <small>Case &amp; camere</small>
-          </span>
+        <Link
+          className="brand brand--cora"
+          href="/"
+          onClick={() => setMenuOpen(false)}
+          aria-label="CORA — Home"
+        >
+          <span className="brand__wordmark">CORA</span>
         </Link>
 
         <button
@@ -104,7 +104,9 @@ export function SiteHeader() {
         >
           <ul className="nav__list">
             {navigation.map((item) => {
-              const active = currentPath === normalizePath(item.href);
+              const active =
+                currentPath === normalizePath(item.href) ||
+                (item.href === "/stays/" && currentPath.startsWith("/stays"));
 
               return (
                 <li key={item.href}>
@@ -122,10 +124,10 @@ export function SiteHeader() {
           </ul>
           <Link
             className="btn btn--primary nav__cta"
-            href="/contatti/#richiesta"
+            href="/stays/contatti/#richiesta"
             onClick={() => setMenuOpen(false)}
           >
-            Chiedi disponibilità
+            Prenota
           </Link>
         </nav>
       </div>

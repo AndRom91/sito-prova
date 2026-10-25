@@ -32,7 +32,7 @@ export const homeFeatures: Feature[] = [
   },
   {
     icon: "hub",
-    title: "Un hub, non un gruppo",
+    title: "Una rete, non un gruppo",
     text: "Cinque indirizzi indipendenti che si passano gli ospiti: prenoti da uno e ti accogliamo in tutti.",
   },
 ];

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/components/link";
 
 import type { Structure } from "@/data/structures";
 import { revealDelay } from "@/lib/styles";
@@ -40,10 +40,10 @@ export function StructureDetail({ structure }: StructureDetailProps) {
           <p className="structure__price">
             <strong>−15%</strong>prenotando direttamente dal sito
           </p>
-          <Link className="btn btn--primary" href="/contatti/#richiesta">
+          <Link className="btn btn--primary" href="/stays/contatti/#richiesta">
             Chiedi disponibilità
           </Link>
-          <Link className="link-arrow" href="/galleria/">
+          <Link className="link-arrow" href="/stays/galleria/">
             Guarda le foto
           </Link>
         </div>

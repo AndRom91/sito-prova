@@ -1,18 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Jost } from "next/font/google";
 
 import { RevealObserver } from "@/components/reveal-observer";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
 import { absoluteUrl, ogImage, siteConfig } from "@/data/site";
 
 import "./globals.css";
+import "./cora.css";
 
-const playfair = Playfair_Display({
+const jost = Jost({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["400", "500", "600"],
   style: ["normal", "italic"],
-  variable: "--font-playfair",
+  variable: "--font-jost",
   display: "swap",
 });
 
@@ -27,22 +26,24 @@ export const metadata: Metadata = {
   metadataBase: new URL(`${siteConfig.url}/`),
   title: {
     default: siteConfig.title,
-    template: "%s — Rooms Hub",
+    template: "%s — CORA",
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
-  category: "travel",
+  category: "lifestyle",
   keywords: [
-    "Rooms Hub",
+    "CORA",
+    "CORA STAYS",
+    "CORA WEARS",
+    "CORA LIVING",
+    "CORA PROJECTS",
     "camere Salerno",
     "appartamenti Salerno",
-    "Vietri sul Mare",
     "Costiera Amalfitana",
     "Cilento",
-    "case vacanza Campania",
   ],
   alternates: {
     canonical: absoluteUrl("/"),
@@ -51,14 +52,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "it_IT",
     siteName: siteConfig.name,
-    title: "Rooms Hub — Feel home, everywhere.",
+    title: "CORA — A World of Possibilities",
     description: siteConfig.shortDescription,
     url: absoluteUrl("/"),
     images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rooms Hub — Feel home, everywhere.",
+    title: "CORA — A World of Possibilities",
     description: siteConfig.shortDescription,
     images: [ogImage.url],
   },
@@ -76,7 +77,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#fbf9f3",
+  themeColor: "#f4efe6",
   colorScheme: "light",
 };
 
@@ -86,7 +87,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="it" className={`js ${playfair.variable} ${inter.variable}`}>
+    <html lang="it" className={`js ${jost.variable} ${inter.variable}`}>
       <body>
         <noscript>
           <style>{`.reveal{opacity:1!important;transform:none!important}`}</style>
@@ -94,9 +95,7 @@ export default function RootLayout({
         <a className="skip-link" href="#contenuto">
           Vai al contenuto principale
         </a>
-        <SiteHeader />
         {children}
-        <SiteFooter />
         <RevealObserver />
       </body>
     </html>
