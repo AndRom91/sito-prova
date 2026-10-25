@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://androm91.github.io
+Sitemap: https://androm91.github.io/sito-prova/sitemap.xml

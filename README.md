@@ -34,27 +34,45 @@ Esegue lint, typecheck e build statica. L'output viene generato in `out/`.
 
 ## Deploy su GitHub Pages
 
-Il workflow `.github/workflows/deploy.yml` pubblica automaticamente `out/` a ogni push su `main` o `master`.
-
-Imposta in **Settings → Pages → Build and deployment** la sorgente **GitHub Actions**.
-
 Il sito è pubblicato come project page:
 
 - URL: `https://androm91.github.io/sito-prova/`
 - `NEXT_PUBLIC_BASE_PATH=/sito-prova`
 - `NEXT_PUBLIC_SITE_URL=https://androm91.github.io/sito-prova`
 
-Se il repository o il dominio cambiano, aggiorna `NEXT_PUBLIC_BASE_PATH` e `NEXT_PUBLIC_SITE_URL` nel workflow. Se cambia solo il dominio, aggiorna anche il fallback di `siteConfig.url` in `src/data/site.ts`.
+GitHub Pages pubblica il **branch `main` dalla root del repository**. Per questo la build statica viene copiata nella root: `index.html`, `_next/`, `stays/`, `wears/`, `living/`, `projects/`, `404.html`, `.nojekyll`, ecc.
+
+Per aggiornare il sito pubblicato:
+
+```bash
+NEXT_PUBLIC_BASE_PATH=/sito-prova \
+NEXT_PUBLIC_SITE_URL=https://androm91.github.io/sito-prova \
+npm run pages
+```
+
+Il comando esegue la build e sincronizza `out/` nella root tramite `scripts/sync-pages.mjs`. Poi committa e pusha anche i file generati nella root.
+
+In PowerShell:
+
+```powershell
+$env:NEXT_PUBLIC_BASE_PATH = "/sito-prova"
+$env:NEXT_PUBLIC_SITE_URL = "https://androm91.github.io/sito-prova"
+npm run pages
+```
+
+Il workflow `.github/workflows/ci.yml` esegue lint, typecheck e build a ogni push. La pubblicazione resta affidata a GitHub Pages dal branch `main`.
+
+Se il repository o il dominio cambiano, aggiorna `NEXT_PUBLIC_BASE_PATH` e `NEXT_PUBLIC_SITE_URL` nei comandi di build. Se cambia solo il dominio, aggiorna anche il fallback di `siteConfig.url` in `src/data/site.ts`.
 
 ## Build manuale per GitHub Pages
 
 ```bash
 NEXT_PUBLIC_BASE_PATH=/sito-prova \
 NEXT_PUBLIC_SITE_URL=https://androm91.github.io/sito-prova \
-npm run build
+npm run pages
 ```
 
-Carica il contenuto di `out/` sulla radice del sito. Il file `.nojekyll` viene creato automaticamente dal post-build.
+Il file `.nojekyll` viene creato automaticamente dal post-build e copiato nella root.
 
 ## Struttura
 
