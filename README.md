@@ -45,32 +45,24 @@ GitHub Pages pubblica il **branch `main` dalla root del repository**. Per questo
 Per aggiornare il sito pubblicato:
 
 ```bash
-NEXT_PUBLIC_BASE_PATH=/sito-prova \
-NEXT_PUBLIC_SITE_URL=https://androm91.github.io/sito-prova \
 npm run pages
 ```
 
-Il comando esegue la build e sincronizza `out/` nella root tramite `scripts/sync-pages.mjs`. Poi committa e pusha anche i file generati nella root.
+Lo script `scripts/build-pages.mjs` imposta automaticamente `NEXT_PUBLIC_BASE_PATH=/sito-prova` e `NEXT_PUBLIC_SITE_URL=https://androm91.github.io/sito-prova`, esegue la build, crea `.nojekyll` e sincronizza `out/` nella root tramite `scripts/sync-pages.mjs`. Poi committa e pusha anche i file generati nella root.
 
-In PowerShell:
-
-```powershell
-$env:NEXT_PUBLIC_BASE_PATH = "/sito-prova"
-$env:NEXT_PUBLIC_SITE_URL = "https://androm91.github.io/sito-prova"
-npm run pages
-```
+Il basePath è indispensabile: senza, l'HTML pubblicato punta a `/_next/...` invece che a `/sito-prova/_next/...` e il sito resta senza CSS e immagini. Per questo `sync-pages.mjs` rifiuta di pubblicare una build senza il prefisso corretto.
 
 Il workflow `.github/workflows/ci.yml` esegue lint, typecheck e build a ogni push. La pubblicazione resta affidata a GitHub Pages dal branch `main`.
 
-Se il repository o il dominio cambiano, aggiorna `NEXT_PUBLIC_BASE_PATH` e `NEXT_PUBLIC_SITE_URL` nei comandi di build. Se cambia solo il dominio, aggiorna anche il fallback di `siteConfig.url` in `src/data/site.ts`.
+Se il repository o il dominio cambiano, aggiorna i valori predefiniti in `scripts/build-pages.mjs`. Se cambia solo il dominio, aggiorna anche il fallback di `siteConfig.url` in `src/data/site.ts`.
 
 ## Build manuale per GitHub Pages
 
 ```bash
-NEXT_PUBLIC_BASE_PATH=/sito-prova \
-NEXT_PUBLIC_SITE_URL=https://androm91.github.io/sito-prova \
 npm run pages
 ```
+
+Per pubblicare su un dominio root (senza `/sito-prova/`) puoi forzare `NEXT_PUBLIC_BASE_PATH=""` prima del comando.
 
 Il file `.nojekyll` viene creato automaticamente dal post-build e copiato nella root.
 

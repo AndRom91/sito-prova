@@ -1,4 +1,4 @@
-import { cpSync, existsSync, readdirSync, rmSync } from "node:fs";
+import { cpSync, existsSync, readFileSync, readdirSync, rmSync } from "node:fs";
 import { join } from "node:path";
 
 /**
@@ -13,6 +13,27 @@ if (!existsSync(join(outDir, "index.html"))) {
   console.error("Build non trovata: esegui prima `npm run build`.");
   process.exit(1);
 }
+
+// Una build senza basePath produce collegamenti e asset che su GitHub Pages
+// (project page sotto /sito-prova/) non esistono: meglio fermarsi qui.
+// Imposta NEXT_PUBLIC_BASE_PATH="" per pubblicare su un dominio root.
+const basePath = (process.env.NEXT_PUBLIC_BASE_PATH ?? "/sito-prova").replace(
+  /\/$/,
+  "",
+);
+
+if (basePath) {
+  const html = readFileSync(join(outDir, "index.html"), "utf8");
+
+  if (!html.includes(`${basePath}/_next/`)) {
+    console.error(
+      `Build non valida per GitHub Pages: manca il basePath "${basePath}".\n` +
+        "Esegui `npm run pages` (imposta automaticamente il basePath).",
+    );
+    process.exit(1);
+  }
+}
+
 
 const generatedEntries = new Set([
   "_next",
