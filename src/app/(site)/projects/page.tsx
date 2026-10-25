@@ -1,7 +1,7 @@
 import { BrandPage, brandMetadata } from "@/views/brand-page";
 
-export const metadata = brandMetadata("it", "projects");
+export const metadata = brandMetadata("projects");
 
 export default function ProjectsPage() {
-  return <BrandPage locale="it" page="projects" />;
+  return <BrandPage page="projects" />;
 }

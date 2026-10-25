@@ -4,18 +4,15 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 import { Icon } from "@/components/icons";
-import { getGallery, type GalleryFilter } from "@/data/gallery";
-import { getDictionary } from "@/i18n";
-import type { Locale } from "@/i18n/config";
+import { copy } from "@/data/copy";
+import {
+  galleryFilters,
+  galleryItems,
+  type GalleryFilter,
+} from "@/data/gallery";
 import { revealDelay } from "@/lib/styles";
 
-type GalleryProps = {
-  locale: Locale;
-};
-
-export function Gallery({ locale }: GalleryProps) {
-  const t = getDictionary(locale);
-  const { filters, items } = getGallery(locale);
+export function Gallery() {
   const [filter, setFilter] = useState<GalleryFilter>("tutte");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -24,8 +21,8 @@ export function Gallery({ locale }: GalleryProps) {
 
   const visibleItems =
     filter === "tutte"
-      ? items
-      : items.filter((item) => item.category === filter);
+      ? galleryItems
+      : galleryItems.filter((item) => item.category === filter);
 
   const isOpen = openIndex !== null;
   const currentItem =
@@ -110,9 +107,9 @@ export function Gallery({ locale }: GalleryProps) {
       <div
         className="filters reveal"
         role="group"
-        aria-label={t.gallery.ui.filterLabel}
+        aria-label={copy.gallery.ui.filterLabel}
       >
-        {filters.map((item) => (
+        {galleryFilters.map((item) => (
           <button
             key={item.value}
             className="filter"
@@ -158,7 +155,7 @@ export function Gallery({ locale }: GalleryProps) {
         className={`lightbox${isOpen ? " is-open" : ""}`}
         role="dialog"
         aria-modal={isOpen}
-        aria-label={t.gallery.ui.dialogLabel}
+        aria-label={copy.gallery.ui.dialogLabel}
         aria-hidden={!isOpen}
       >
         <div className="lightbox__bar">
@@ -169,7 +166,7 @@ export function Gallery({ locale }: GalleryProps) {
             ref={closeRef}
             className="lightbox__close"
             type="button"
-            aria-label={t.gallery.ui.close}
+            aria-label={copy.gallery.ui.close}
             onClick={close}
           >
             <Icon name="close" strokeWidth={1.8} />
@@ -185,7 +182,7 @@ export function Gallery({ locale }: GalleryProps) {
           <button
             className="lightbox__nav lightbox__nav--prev"
             type="button"
-            aria-label={t.gallery.ui.previous}
+            aria-label={copy.gallery.ui.previous}
             onClick={() => step(-1)}
           >
             <Icon name="chevron-left" strokeWidth={1.8} />
@@ -201,7 +198,7 @@ export function Gallery({ locale }: GalleryProps) {
           <button
             className="lightbox__nav lightbox__nav--next"
             type="button"
-            aria-label={t.gallery.ui.next}
+            aria-label={copy.gallery.ui.next}
             onClick={() => step(1)}
           >
             <Icon name="chevron-right" strokeWidth={1.8} />

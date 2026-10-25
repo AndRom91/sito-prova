@@ -1,29 +1,18 @@
 import { Link } from "@/components/link";
-
-import { getNavigation } from "@/data/navigation";
+import { copy } from "@/data/copy";
+import { navigation } from "@/data/navigation";
 import { siteConfig, socials } from "@/data/site";
-import { getStructures } from "@/data/structures";
-import { getDictionary } from "@/i18n";
-import { localeHref, type Locale } from "@/i18n/config";
+import { structures } from "@/data/structures";
 
-type SiteFooterProps = {
-  locale: Locale;
-};
-
-export function SiteFooter({ locale }: SiteFooterProps) {
-  const t = getDictionary(locale);
-  const navigation = getNavigation(locale);
-  const structures = getStructures(locale);
+export function SiteFooter() {
+  const t = copy;
   const year = new Date().getFullYear();
 
   return (
     <footer className="site-footer">
       <div className="container footer__main">
         <div>
-          <Link
-            className="footer__brand footer__brand--cora"
-            href={localeHref(locale, "/")}
-          >
+          <Link className="footer__brand footer__brand--cora" href="/">
             CORA
           </Link>
           <p className="footer__about">{t.footer.about}</p>
@@ -34,7 +23,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
           <ul className="footer__list">
             {navigation.map((item) => (
               <li key={item.href}>
-                <Link href={localeHref(locale, item.href)}>{item.label}</Link>
+                <Link href={item.href}>{item.label}</Link>
               </li>
             ))}
           </ul>
@@ -45,12 +34,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
           <ul className="footer__list">
             {structures.map((structure) => (
               <li key={structure.id}>
-                <Link
-                  href={localeHref(
-                    locale,
-                    `/stays/strutture/#${structure.id}`,
-                  )}
-                >
+                <Link href={`/stays/strutture/#${structure.id}`}>
                   {structure.title}
                 </Link>
               </li>
@@ -78,9 +62,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
               </a>
             </li>
             <li>
-              <Link href={localeHref(locale, "/stays/contatti/#richiesta")}>
-                {t.footer.request}
-              </Link>
+              <Link href="/stays/contatti/#richiesta">{t.footer.request}</Link>
             </li>
           </ul>
         </div>
@@ -93,9 +75,7 @@ export function SiteFooter({ locale }: SiteFooterProps) {
         </p>
         <p>
           {t.footer.photos} ·{" "}
-          <Link href={localeHref(locale, "/stays/contatti/")}>
-            {t.footer.privacy}
-          </Link>
+          <Link href="/stays/contatti/">{t.footer.privacy}</Link>
         </p>
       </div>
     </footer>

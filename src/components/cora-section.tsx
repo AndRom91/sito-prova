@@ -3,12 +3,10 @@ import { Link } from "@/components/link";
 import type { StaticImageData } from "next/image";
 
 import { Icon } from "@/components/icons";
+import { copy } from "@/data/copy";
 import { siteConfig } from "@/data/site";
-import { getDictionary } from "@/i18n";
-import { localeHref, type Locale } from "@/i18n/config";
 
 type CoraSectionProps = {
-  locale: Locale;
   title: string;
   subtitle: string;
   description: string;
@@ -18,7 +16,6 @@ type CoraSectionProps = {
 };
 
 export function CoraSection({
-  locale,
   title,
   subtitle,
   description,
@@ -26,7 +23,7 @@ export function CoraSection({
   alt,
   variant = "image",
 }: CoraSectionProps) {
-  const t = getDictionary(locale);
+  const t = copy;
 
   return (
     <main className="cora-section" id="contenuto">
@@ -59,7 +56,7 @@ export function CoraSection({
             <p className="cora-section__subtitle">{subtitle}</p>
             <p className="cora-section__text">{description}</p>
             <div className="cora-section__actions">
-              <Link className="btn btn--primary" href={localeHref(locale, "/")}>
+              <Link className="btn btn--primary" href="/">
                 {t.brand.back}
                 <Icon name="arrow" strokeWidth={1.8} />
               </Link>

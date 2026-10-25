@@ -1,31 +1,21 @@
-import { Link } from "@/components/link";
 import type { ReactNode } from "react";
 
-import { getDictionary } from "@/i18n";
-import { localeHref, type Locale } from "@/i18n/config";
+import { Link } from "@/components/link";
+import { copy } from "@/data/copy";
 
 type PageHeadProps = {
-  locale: Locale;
   eyebrow: string;
   title: ReactNode;
   text: ReactNode;
   current: string;
 };
 
-export function PageHead({
-  locale,
-  eyebrow,
-  title,
-  text,
-  current,
-}: PageHeadProps) {
-  const t = getDictionary(locale);
-
+export function PageHead({ eyebrow, title, text, current }: PageHeadProps) {
   return (
     <section className="page-head" aria-labelledby="page-title">
       <div className="container">
-        <nav className="breadcrumb" aria-label={t.pageHead.breadcrumb}>
-          <Link href={localeHref(locale, "/stays/")}>CORA STAYS</Link>
+        <nav className="breadcrumb" aria-label={copy.pageHead.breadcrumb}>
+          <Link href="/stays/">CORA STAYS</Link>
           <span aria-hidden="true">/</span>
           <span aria-current="page">{current}</span>
         </nav>

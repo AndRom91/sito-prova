@@ -1,7 +1,10 @@
-import type { Locale } from "@/i18n/config";
-
 export const siteConfig = {
   name: "CORA",
+  title: "CORA — A World of Possibilities",
+  description:
+    "CORA è un mondo di possibilità: ospitalità, moda, lifestyle e nuovi progetti. Scopri CORA STAYS, CORA WEARS, CORA LIVING e CORA PROJECTS.",
+  shortDescription:
+    "A world of possibilities: hospitality, fashion, lifestyle and new ventures.",
   url: (
     process.env.NEXT_PUBLIC_SITE_URL ??
     "https://androm91.github.io/sito-prova"
@@ -16,26 +19,6 @@ export const siteConfig = {
     rea: "SA 515460",
   },
 } as const;
-
-export const siteCopy: Record<
-  Locale,
-  { title: string; description: string; shortDescription: string }
-> = {
-  it: {
-    title: "CORA — A World of Possibilities",
-    description:
-      "CORA è un mondo di possibilità: ospitalità, moda, lifestyle e nuovi progetti. Scopri CORA STAYS, CORA WEARS, CORA LIVING e CORA PROJECTS.",
-    shortDescription:
-      "A world of possibilities: hospitality, fashion, lifestyle and new ventures.",
-  },
-  en: {
-    title: "CORA — A World of Possibilities",
-    description:
-      "CORA is a world of possibilities: hospitality, fashion, lifestyle and new ventures. Discover CORA STAYS, CORA WEARS, CORA LIVING and CORA PROJECTS.",
-    shortDescription:
-      "A world of possibilities: hospitality, fashion, lifestyle and new ventures.",
-  },
-};
 
 export const socials = [
   {

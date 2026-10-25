@@ -1,24 +1,17 @@
 import Image from "next/image";
-import { Link } from "@/components/link";
 
-import { getGallery } from "@/data/gallery";
-import { localeHref, type Locale } from "@/i18n/config";
+import { Link } from "@/components/link";
+import { homeGalleryItems } from "@/data/gallery";
 import { revealDelay } from "@/lib/styles";
 
-type HomeGalleryProps = {
-  locale: Locale;
-};
-
-export function HomeGallery({ locale }: HomeGalleryProps) {
-  const { homeItems } = getGallery(locale);
-
+export function HomeGallery() {
   return (
     <div className="gallery-grid">
-      {homeItems.map((item, index) => (
+      {homeGalleryItems.map((item, index) => (
         <Link
           key={item.id}
           className="gallery__item reveal"
-          href={localeHref(locale, "/stays/galleria/")}
+          href="/stays/galleria/"
           style={revealDelay((index % 3) * 60)}
         >
           <Image

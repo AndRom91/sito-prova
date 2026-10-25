@@ -7,7 +7,7 @@ export default function StaysLayout({
 }>) {
   return (
     <>
-      <StaysNav locale="it" />
+      <StaysNav />
       {children}
     </>
   );

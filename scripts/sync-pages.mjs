@@ -22,7 +22,6 @@ const generatedEntries = new Set([
   "wears",
   "living",
   "projects",
-  "en",
   "index.html",
   "404.html",
   "icon.svg",

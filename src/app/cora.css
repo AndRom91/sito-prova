@@ -43,59 +43,6 @@
   text-transform: uppercase;
 }
 
-.header__actions {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.lang-switch {
-  display: inline-flex;
-  align-items: center;
-  gap: 2px;
-  padding: 2px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(255, 253, 248, 0.6);
-}
-
-.lang-switch__item {
-  display: grid;
-  place-items: center;
-  min-width: 2rem;
-  height: 1.8rem;
-  padding-inline: 0.45rem;
-  border-radius: 999px;
-  color: var(--ink-muted);
-  font-size: 0.66rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  transition: background-color 0.2s var(--ease), color 0.2s var(--ease);
-}
-
-.lang-switch__item:hover {
-  color: var(--ink);
-}
-
-.lang-switch__item[aria-current="true"] {
-  background: var(--ink);
-  color: var(--cream);
-}
-
-.lang-switch__item[aria-current="true"]:hover {
-  color: var(--cream);
-}
-
-.locale-root {
-  display: contents;
-}
-
-@media (min-width: 861px) {
-  .nav {
-    margin-left: auto;
-  }
-}
-
 /* --------------------------------------------------------------------------
    Barra di sezione CORA STAYS
    -------------------------------------------------------------------------- */
@@ -166,19 +113,12 @@
 }
 
 .cora-home__inner {
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: min(100%, 900px);
   min-height: calc(100svh - clamp(4rem, 11vh, 7.5rem));
   margin-inline: auto;
-}
-
-.cora-home__lang {
-  position: absolute;
-  top: 0;
-  right: 0;
 }
 
 .cora-home__head {
@@ -587,16 +527,6 @@
 
   .nav__cta {
     font-size: 0.78rem;
-  }
-
-  .header__actions {
-    gap: 0.5rem;
-  }
-
-  .lang-switch__item {
-    min-width: 1.85rem;
-    height: 1.7rem;
-    padding-inline: 0.35rem;
   }
 }
 

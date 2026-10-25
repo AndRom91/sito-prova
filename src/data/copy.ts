@@ -1,12 +1,9 @@
-export const it = {
+/**
+ * Testi dell'interfaccia in italiano.
+ * Un unico punto in cui modificare le copy condivise tra le pagine.
+ */
+export const copy = {
   skipToContent: "Vai al contenuto principale",
-  languageSwitcher: {
-    label: "Seleziona la lingua",
-    options: {
-      it: "Italiano",
-      en: "English",
-    },
-  },
   header: {
     home: "CORA — Home",
     openMenu: "Apri il menu",
@@ -333,5 +330,3 @@ export const it = {
     },
   },
 };
-
-export type Dictionary = typeof it;

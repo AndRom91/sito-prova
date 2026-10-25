@@ -1,25 +1,17 @@
 import Image from "next/image";
-import { Link } from "@/components/link";
 
 import { Icon } from "@/components/icons";
+import { Link } from "@/components/link";
+import { copy } from "@/data/copy";
 import type { Structure } from "@/data/structures";
-import { getDictionary } from "@/i18n";
-import { localeHref, type Locale } from "@/i18n/config";
 import { revealDelay } from "@/lib/styles";
 
 type StructureCardProps = {
-  locale: Locale;
   structure: Structure;
   delay?: number;
 };
 
-export function StructureCard({
-  locale,
-  structure,
-  delay,
-}: StructureCardProps) {
-  const t = getDictionary(locale);
-
+export function StructureCard({ structure, delay }: StructureCardProps) {
   return (
     <article className="card reveal" style={delay ? revealDelay(delay) : undefined}>
       <div className="card__media">
@@ -39,13 +31,13 @@ export function StructureCard({
         <p className="card__text">{structure.cardText}</p>
         <div className="card__foot">
           <p className="card__price">
-            <strong>−15%</strong> {t.structureCard.discount}
+            <strong>−15%</strong> {copy.structureCard.discount}
           </p>
           <Link
             className="link-arrow"
-            href={localeHref(locale, `/stays/strutture/#${structure.id}`)}
+            href={`/stays/strutture/#${structure.id}`}
           >
-            {t.structureCard.details}
+            {copy.structureCard.details}
             <Icon name="arrow" strokeWidth={1.8} />
           </Link>
         </div>

@@ -1,18 +1,15 @@
 import Image from "next/image";
-import { Link } from "@/components/link";
 
+import { Link } from "@/components/link";
+import { copy } from "@/data/copy";
 import type { Structure } from "@/data/structures";
-import { getDictionary } from "@/i18n";
-import { localeHref, type Locale } from "@/i18n/config";
 import { revealDelay } from "@/lib/styles";
 
 type StructureDetailProps = {
-  locale: Locale;
   structure: Structure;
 };
 
-export function StructureDetail({ locale, structure }: StructureDetailProps) {
-  const t = getDictionary(locale);
+export function StructureDetail({ structure }: StructureDetailProps) {
   const titleId = `${structure.id}-title`;
 
   return (
@@ -42,19 +39,13 @@ export function StructureDetail({ locale, structure }: StructureDetailProps) {
         </ul>
         <div className="structure__foot">
           <p className="structure__price">
-            <strong>−15%</strong> {t.structureDetail.discount}
+            <strong>−15%</strong> {copy.structureDetail.discount}
           </p>
-          <Link
-            className="btn btn--primary"
-            href={localeHref(locale, "/stays/contatti/#richiesta")}
-          >
-            {t.structureDetail.ask}
+          <Link className="btn btn--primary" href="/stays/contatti/#richiesta">
+            {copy.structureDetail.ask}
           </Link>
-          <Link
-            className="link-arrow"
-            href={localeHref(locale, "/stays/galleria/")}
-          >
-            {t.structureDetail.photos}
+          <Link className="link-arrow" href="/stays/galleria/">
+            {copy.structureDetail.photos}
           </Link>
         </div>
       </div>

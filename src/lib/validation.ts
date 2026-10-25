@@ -1,8 +1,8 @@
 import { z } from "zod";
 
-import type { Dictionary } from "@/i18n";
+import { copy } from "@/data/copy";
 
-type BookingMessages = Dictionary["contact"]["form"]["validation"];
+type BookingMessages = typeof copy.contact.form.validation;
 
 export function createBookingSchema(messages: BookingMessages) {
   return z

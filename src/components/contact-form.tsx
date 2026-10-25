@@ -4,9 +4,8 @@ import { useMemo, useRef, useState } from "react";
 import type { FormEvent } from "react";
 
 import { Icon } from "@/components/icons";
+import { copy } from "@/data/copy";
 import { siteConfig } from "@/data/site";
-import { getDictionary } from "@/i18n";
-import type { Locale } from "@/i18n/config";
 import {
   bookingDefaults,
   createBookingSchema,
@@ -20,10 +19,6 @@ type FormStatus = {
   message: string;
 };
 
-type ContactFormProps = {
-  locale: Locale;
-};
-
 const focusOrder: BookingField[] = [
   "nome",
   "email",
@@ -35,8 +30,8 @@ const focusOrder: BookingField[] = [
 const fill = (template: string, values: Record<string, string>) =>
   template.replace(/\{(\w+)\}/g, (match, key: string) => values[key] ?? match);
 
-export function ContactForm({ locale }: ContactFormProps) {
-  const t = getDictionary(locale).contact.form;
+export function ContactForm() {
+  const t = copy.contact.form;
   const bookingSchema = useMemo(
     () => createBookingSchema(t.validation),
     [t.validation],

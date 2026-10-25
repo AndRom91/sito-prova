@@ -1,14 +1,9 @@
 import { Icon } from "@/components/icons";
+import { copy } from "@/data/copy";
 import { siteConfig, socials } from "@/data/site";
-import { getDictionary } from "@/i18n";
-import type { Locale } from "@/i18n/config";
 
-type ContactDetailsProps = {
-  locale: Locale;
-};
-
-export function ContactDetails({ locale }: ContactDetailsProps) {
-  const t = getDictionary(locale).contact.details;
+export function ContactDetails() {
+  const t = copy.contact.details;
 
   return (
     <div className="reveal">

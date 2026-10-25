@@ -5,31 +5,25 @@ import { ContactForm } from "@/components/contact-form";
 import { ContactMap } from "@/components/contact-map";
 import { JsonLd } from "@/components/json-ld";
 import { PageHead } from "@/components/page-head";
-import { getFaqs } from "@/data/faqs";
-import { getDictionary } from "@/i18n";
-import type { Locale } from "@/i18n/config";
+import { copy } from "@/data/copy";
+import { faqs } from "@/data/faqs";
 import { createPageMetadata } from "@/lib/metadata";
 
-export function contactMetadata(locale: Locale): Metadata {
-  const t = getDictionary(locale).contact;
+export function contactMetadata(): Metadata {
+  const contact = copy.contact;
 
-  return createPageMetadata(locale, {
-    title: t.meta.title,
-    description: t.meta.description,
+  return createPageMetadata({
+    title: contact.meta.title,
+    description: contact.meta.description,
     path: "/stays/contatti/",
     absoluteTitle: true,
-    ogTitle: t.meta.ogTitle,
-    ogDescription: t.meta.ogDescription,
+    ogTitle: contact.meta.ogTitle,
+    ogDescription: contact.meta.ogDescription,
   });
 }
 
-type ContactPageProps = {
-  locale: Locale;
-};
-
-export function ContactPage({ locale }: ContactPageProps) {
-  const t = getDictionary(locale).contact;
-  const faqs = getFaqs(locale);
+export function ContactPage() {
+  const contact = copy.contact;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -48,21 +42,20 @@ export function ContactPage({ locale }: ContactPageProps) {
     <>
       <main id="contenuto">
         <PageHead
-          locale={locale}
-          eyebrow={t.pageHead.eyebrow}
-          title={t.pageHead.title}
-          text={t.pageHead.text}
-          current={t.pageHead.current}
+          eyebrow={contact.pageHead.eyebrow}
+          title={contact.pageHead.title}
+          text={contact.pageHead.text}
+          current={contact.pageHead.current}
         />
 
         <section className="section">
           <div className="container">
             <div className="contact-layout">
-              <ContactDetails locale={locale} />
-              <ContactForm locale={locale} />
+              <ContactDetails />
+              <ContactForm />
             </div>
 
-            <ContactMap locale={locale} />
+            <ContactMap />
           </div>
         </section>
 
@@ -73,9 +66,9 @@ export function ContactPage({ locale }: ContactPageProps) {
           <div className="container">
             <div className="section__head reveal">
               <div>
-                <p className="eyebrow">{t.faq.eyebrow}</p>
+                <p className="eyebrow">{contact.faq.eyebrow}</p>
                 <h2 className="section__title" id="faq-title">
-                  {t.faq.title}
+                  {contact.faq.title}
                 </h2>
               </div>
             </div>

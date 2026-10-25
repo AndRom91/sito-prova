@@ -3,51 +3,45 @@ import type { Metadata } from "next";
 import { CtaBand } from "@/components/cta-band";
 import { Gallery } from "@/components/gallery";
 import { PageHead } from "@/components/page-head";
-import { getDictionary } from "@/i18n";
-import { localeHref, type Locale } from "@/i18n/config";
+import { copy } from "@/data/copy";
 import { createPageMetadata } from "@/lib/metadata";
 
-export function galleryMetadata(locale: Locale): Metadata {
-  const t = getDictionary(locale).gallery;
+export function galleryMetadata(): Metadata {
+  const gallery = copy.gallery;
 
-  return createPageMetadata(locale, {
-    title: t.meta.title,
-    description: t.meta.description,
+  return createPageMetadata({
+    title: gallery.meta.title,
+    description: gallery.meta.description,
     path: "/stays/galleria/",
     absoluteTitle: true,
-    ogTitle: t.meta.ogTitle,
-    ogDescription: t.meta.ogDescription,
+    ogTitle: gallery.meta.ogTitle,
+    ogDescription: gallery.meta.ogDescription,
   });
 }
 
-type GalleryPageProps = {
-  locale: Locale;
-};
-
-export function GalleryPage({ locale }: GalleryPageProps) {
-  const t = getDictionary(locale).gallery;
+export function GalleryPage() {
+  const gallery = copy.gallery;
 
   return (
     <main id="contenuto">
       <PageHead
-        locale={locale}
-        eyebrow={t.pageHead.eyebrow}
-        title={t.pageHead.title}
-        text={t.pageHead.text}
-        current={t.pageHead.current}
+        eyebrow={gallery.pageHead.eyebrow}
+        title={gallery.pageHead.title}
+        text={gallery.pageHead.text}
+        current={gallery.pageHead.current}
       />
 
       <section className="section">
         <div className="container">
-          <Gallery locale={locale} />
+          <Gallery />
         </div>
       </section>
 
       <CtaBand
-        title={t.cta.title}
-        text={t.cta.text}
-        buttonLabel={t.cta.button}
-        href={localeHref(locale, "/stays/contatti/#richiesta")}
+        title={gallery.cta.title}
+        text={gallery.cta.text}
+        buttonLabel={gallery.cta.button}
+        href="/stays/contatti/#richiesta"
       />
     </main>
   );

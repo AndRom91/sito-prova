@@ -1,12 +1,7 @@
-import { getDictionary } from "@/i18n";
-import type { Locale } from "@/i18n/config";
+import { copy } from "@/data/copy";
 
-type ContactMapProps = {
-  locale: Locale;
-};
-
-export function ContactMap({ locale }: ContactMapProps) {
-  const t = getDictionary(locale).contact.map;
+export function ContactMap() {
+  const t = copy.contact.map;
 
   return (
     <div className="map-wrap reveal">

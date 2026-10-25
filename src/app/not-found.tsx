@@ -21,7 +21,7 @@ export default function NotFound() {
       <a className="skip-link" href="#contenuto">
         Vai al contenuto principale
       </a>
-      <SiteHeader locale="it" />
+      <SiteHeader />
       <main id="contenuto">
         <section className="page-head" aria-labelledby="page-title">
           <div className="container">
@@ -45,7 +45,7 @@ export default function NotFound() {
           </div>
         </section>
       </main>
-      <SiteFooter locale="it" />
+      <SiteFooter />
     </>
   );
 }

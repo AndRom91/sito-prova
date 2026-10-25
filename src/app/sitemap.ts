@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 
 import { absoluteUrl } from "@/data/site";
-import { localeHref, locales } from "@/i18n/config";
 
 export const dynamic = "force-static";
 
@@ -19,18 +18,10 @@ const pages = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
-  return pages.flatMap((page) =>
-    locales.map((locale) => ({
-      url: absoluteUrl(localeHref(locale, page.path)),
-      lastModified,
-      changeFrequency: page.changeFrequency,
-      priority: page.priority,
-      alternates: {
-        languages: {
-          it: absoluteUrl(localeHref("it", page.path)),
-          en: absoluteUrl(localeHref("en", page.path)),
-        },
-      },
-    })),
-  );
+  return pages.map((page) => ({
+    url: absoluteUrl(page.path),
+    lastModified,
+    changeFrequency: page.changeFrequency,
+    priority: page.priority,
+  }));
 }

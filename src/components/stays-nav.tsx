@@ -1,28 +1,22 @@
 "use client";
 
-import { Link } from "@/components/link";
 import { usePathname } from "next/navigation";
 
-import { getStaysNavigation } from "@/data/navigation";
-import { getDictionary } from "@/i18n";
-import { localeHref, stripLocale, type Locale } from "@/i18n/config";
+import { Link } from "@/components/link";
+import { copy } from "@/data/copy";
+import { staysNavigation } from "@/data/navigation";
 
 const normalizePath = (path: string) => path.replace(/\/$/, "") || "/";
 
-type StaysNavProps = {
-  locale: Locale;
-};
-
-export function StaysNav({ locale }: StaysNavProps) {
-  const t = getDictionary(locale);
-  const staysNavigation = getStaysNavigation(locale);
+export function StaysNav() {
+  const t = copy;
   const pathname = usePathname();
-  const currentPath = normalizePath(stripLocale(pathname));
+  const currentPath = normalizePath(pathname);
 
   return (
     <div className="stays-bar">
       <div className="container stays-bar__inner">
-        <Link className="stays-bar__label" href={localeHref(locale, "/stays/")}>
+        <Link className="stays-bar__label" href="/stays/">
           CORA STAYS
         </Link>
         <nav aria-label={t.staysNav.label}>
@@ -33,7 +27,7 @@ export function StaysNav({ locale }: StaysNavProps) {
               return (
                 <li key={item.href}>
                   <Link
-                    href={localeHref(locale, item.href)}
+                    href={item.href}
                     aria-current={active ? "page" : undefined}
                   >
                     {item.label}

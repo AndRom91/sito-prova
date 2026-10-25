@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Link } from "@/components/link";
 
 import portaroteseCamera from "@/assets/images/portarotese-camera.jpg";
 import { CtaBand } from "@/components/cta-band";
@@ -8,43 +7,37 @@ import { FeatureCard } from "@/components/feature-card";
 import { HomeGallery } from "@/components/home-gallery";
 import { Icon } from "@/components/icons";
 import { JsonLd } from "@/components/json-ld";
+import { Link } from "@/components/link";
 import { StructureCard } from "@/components/structure-card";
-import { getHomeFeatures } from "@/data/features";
+import { copy } from "@/data/copy";
+import { homeFeatures } from "@/data/features";
 import { absoluteUrl, ogImage, siteConfig, socials } from "@/data/site";
-import { getStructures } from "@/data/structures";
-import { getDictionary } from "@/i18n";
-import { localeHref, type Locale } from "@/i18n/config";
+import { structures } from "@/data/structures";
 import { createPageMetadata } from "@/lib/metadata";
 import { revealDelay } from "@/lib/styles";
 
-export function staysMetadata(locale: Locale): Metadata {
-  const t = getDictionary(locale).stays;
+export function staysMetadata(): Metadata {
+  const stays = copy.stays;
 
-  return createPageMetadata(locale, {
-    title: t.meta.title,
-    description: t.meta.description,
+  return createPageMetadata({
+    title: stays.meta.title,
+    description: stays.meta.description,
     path: "/stays/",
     absoluteTitle: true,
-    ogTitle: t.meta.ogTitle,
-    ogDescription: t.meta.ogDescription,
+    ogTitle: stays.meta.ogTitle,
+    ogDescription: stays.meta.ogDescription,
   });
 }
 
-type StaysPageProps = {
-  locale: Locale;
-};
-
-export function StaysPage({ locale }: StaysPageProps) {
-  const t = getDictionary(locale).stays;
-  const structures = getStructures(locale);
-  const features = getHomeFeatures(locale);
+export function StaysPage() {
+  const stays = copy.stays;
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LodgingBusiness",
     name: "CORA STAYS",
-    description: t.jsonLdDescription,
-    url: absoluteUrl(localeHref(locale, "/stays/")),
+    description: stays.jsonLdDescription,
+    url: absoluteUrl("/stays/"),
     image: ogImage.url,
     email: siteConfig.email,
     telephone: siteConfig.phone,
@@ -66,30 +59,24 @@ export function StaysPage({ locale }: StaysPageProps) {
             <p className="hero__wordmark">
               CORA <span>STAYS</span>
             </p>
-            <p className="eyebrow">{t.hero.eyebrow}</p>
+            <p className="eyebrow">{stays.hero.eyebrow}</p>
             <h1 className="hero__title" id="hero-title">
-              {t.hero.titleLead}
+              {stays.hero.titleLead}
               <br />
-              <em>{t.hero.titleEm}</em>
+              <em>{stays.hero.titleEm}</em>
             </h1>
-            <p className="hero__text">{t.hero.text}</p>
+            <p className="hero__text">{stays.hero.text}</p>
             <div className="hero__actions">
-              <Link
-                className="btn btn--primary"
-                href={localeHref(locale, "/stays/strutture/")}
-              >
-                {t.hero.primary}
+              <Link className="btn btn--primary" href="/stays/strutture/">
+                {stays.hero.primary}
                 <Icon name="arrow" strokeWidth={1.8} />
               </Link>
-              <Link
-                className="btn btn--ghost"
-                href={localeHref(locale, "/stays/contatti/")}
-              >
-                {t.hero.secondary}
+              <Link className="btn btn--ghost" href="/stays/contatti/">
+                {stays.hero.secondary}
               </Link>
             </div>
             <ul className="hero__points">
-              {t.hero.points.map((point) => (
+              {stays.hero.points.map((point) => (
                 <li key={point}>{point}</li>
               ))}
             </ul>
@@ -98,21 +85,21 @@ export function StaysPage({ locale }: StaysPageProps) {
           <div className="hero__photo">
             <Image
               src={portaroteseCamera}
-              alt={t.hero.imageAlt}
+              alt={stays.hero.imageAlt}
               sizes="(max-width: 960px) 100vw, 50vw"
               priority
             />
             <p className="hero__badge">
-              <span>{t.hero.badgePlace}</span>
-              {t.hero.badgeArea}
+              <span>{stays.hero.badgePlace}</span>
+              {stays.hero.badgeArea}
             </p>
           </div>
         </section>
 
-        <section className="stats" aria-label={t.statsLabel}>
+        <section className="stats" aria-label={stays.statsLabel}>
           <div className="container">
             <div className="stats__grid">
-              {t.stats.map((stat) => (
+              {stays.stats.map((stat) => (
                 <div className="stats__item" key={stat.label}>
                   <span className="stats__value">{stat.value}</span>
                   <span className="stats__label">{stat.label}</span>
@@ -126,17 +113,14 @@ export function StaysPage({ locale }: StaysPageProps) {
           <div className="container">
             <div className="section__head reveal">
               <div>
-                <p className="eyebrow">{t.houses.eyebrow}</p>
+                <p className="eyebrow">{stays.houses.eyebrow}</p>
                 <h2 className="section__title" id="strutture-title">
-                  {t.houses.titleLead} <em>{t.houses.titleEm}</em>
+                  {stays.houses.titleLead} <em>{stays.houses.titleEm}</em>
                 </h2>
-                <p className="section__lead">{t.houses.lead}</p>
+                <p className="section__lead">{stays.houses.lead}</p>
               </div>
-              <Link
-                className="link-arrow"
-                href={localeHref(locale, "/stays/strutture/")}
-              >
-                {t.houses.link}
+              <Link className="link-arrow" href="/stays/strutture/">
+                {stays.houses.link}
                 <Icon name="arrow" strokeWidth={1.8} />
               </Link>
             </div>
@@ -145,7 +129,6 @@ export function StaysPage({ locale }: StaysPageProps) {
               {structures.map((structure, index) => (
                 <StructureCard
                   key={structure.id}
-                  locale={locale}
                   structure={structure}
                   delay={(index % 3) * 60}
                 />
@@ -156,14 +139,11 @@ export function StaysPage({ locale }: StaysPageProps) {
                 style={revealDelay(120)}
               >
                 <div className="card__body">
-                  <p className="eyebrow">{t.houses.ctaEyebrow}</p>
-                  <h3 className="card__title">{t.houses.ctaTitle}</h3>
-                  <p className="card__text">{t.houses.ctaText}</p>
-                  <Link
-                    className="btn btn--light"
-                    href={localeHref(locale, "/stays/contatti/")}
-                  >
-                    {t.houses.ctaButton}
+                  <p className="eyebrow">{stays.houses.ctaEyebrow}</p>
+                  <h3 className="card__title">{stays.houses.ctaTitle}</h3>
+                  <p className="card__text">{stays.houses.ctaText}</p>
+                  <Link className="btn btn--light" href="/stays/contatti/">
+                    {stays.houses.ctaButton}
                     <Icon name="arrow" strokeWidth={1.8} />
                   </Link>
                 </div>
@@ -179,15 +159,15 @@ export function StaysPage({ locale }: StaysPageProps) {
           <div className="container">
             <div className="section__head reveal">
               <div>
-                <p className="eyebrow">{t.why.eyebrow}</p>
+                <p className="eyebrow">{stays.why.eyebrow}</p>
                 <h2 className="section__title" id="perche-title">
-                  {t.why.titleLead} <em>{t.why.titleEm}</em>
+                  {stays.why.titleLead} <em>{stays.why.titleEm}</em>
                 </h2>
               </div>
             </div>
 
             <div className="features">
-              {features.map((feature, index) => (
+              {homeFeatures.map((feature, index) => (
                 <FeatureCard
                   key={feature.title}
                   feature={feature}
@@ -198,11 +178,11 @@ export function StaysPage({ locale }: StaysPageProps) {
           </div>
         </section>
 
-        <section className="quote-band" aria-label={t.quote.label}>
+        <section className="quote-band" aria-label={stays.quote.label}>
           <div className="container container--narrow">
             <blockquote className="reveal">
-              <p>{t.quote.text}</p>
-              <footer>{t.quote.footer}</footer>
+              <p>{stays.quote.text}</p>
+              <footer>{stays.quote.footer}</footer>
             </blockquote>
           </div>
         </section>
@@ -211,30 +191,27 @@ export function StaysPage({ locale }: StaysPageProps) {
           <div className="container">
             <div className="section__head reveal">
               <div>
-                <p className="eyebrow">{t.gallery.eyebrow}</p>
+                <p className="eyebrow">{stays.gallery.eyebrow}</p>
                 <h2 className="section__title" id="galleria-title">
-                  {t.gallery.titleLead} <em>{t.gallery.titleEm}</em>
+                  {stays.gallery.titleLead} <em>{stays.gallery.titleEm}</em>
                 </h2>
-                <p className="section__lead">{t.gallery.lead}</p>
+                <p className="section__lead">{stays.gallery.lead}</p>
               </div>
-              <Link
-                className="link-arrow"
-                href={localeHref(locale, "/stays/galleria/")}
-              >
-                {t.gallery.link}
+              <Link className="link-arrow" href="/stays/galleria/">
+                {stays.gallery.link}
                 <Icon name="arrow" strokeWidth={1.8} />
               </Link>
             </div>
 
-            <HomeGallery locale={locale} />
+            <HomeGallery />
           </div>
         </section>
 
         <CtaBand
-          title={t.cta.title}
-          text={t.cta.text}
-          buttonLabel={t.cta.button}
-          href={localeHref(locale, "/stays/contatti/#richiesta")}
+          title={stays.cta.title}
+          text={stays.cta.text}
+          buttonLabel={stays.cta.button}
+          href="/stays/contatti/#richiesta"
         />
       </main>
       <JsonLd data={jsonLd} />

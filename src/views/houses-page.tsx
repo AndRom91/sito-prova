@@ -5,46 +5,37 @@ import { FeatureCard } from "@/components/feature-card";
 import { JsonLd } from "@/components/json-ld";
 import { PageHead } from "@/components/page-head";
 import { StructureDetail } from "@/components/structure-detail";
-import { getCommonFeatures } from "@/data/features";
+import { copy } from "@/data/copy";
+import { commonFeatures } from "@/data/features";
 import { absoluteUrl } from "@/data/site";
-import { getStructures } from "@/data/structures";
-import { getDictionary } from "@/i18n";
-import { localeHref, type Locale } from "@/i18n/config";
+import { structures } from "@/data/structures";
 import { createPageMetadata } from "@/lib/metadata";
 
-export function housesMetadata(locale: Locale): Metadata {
-  const t = getDictionary(locale).structures;
+export function housesMetadata(): Metadata {
+  const houses = copy.structures;
 
-  return createPageMetadata(locale, {
-    title: t.meta.title,
-    description: t.meta.description,
+  return createPageMetadata({
+    title: houses.meta.title,
+    description: houses.meta.description,
     path: "/stays/strutture/",
     absoluteTitle: true,
-    ogTitle: t.meta.ogTitle,
-    ogDescription: t.meta.ogDescription,
+    ogTitle: houses.meta.ogTitle,
+    ogDescription: houses.meta.ogDescription,
   });
 }
 
-type HousesPageProps = {
-  locale: Locale;
-};
-
-export function HousesPage({ locale }: HousesPageProps) {
-  const t = getDictionary(locale).structures;
-  const structures = getStructures(locale);
-  const features = getCommonFeatures(locale);
+export function HousesPage() {
+  const houses = copy.structures;
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: t.jsonLdName,
+    name: houses.jsonLdName,
     itemListElement: structures.map((structure, index) => ({
       "@type": "ListItem",
       position: index + 1,
       name: structure.title,
-      url: absoluteUrl(
-        `${localeHref(locale, "/stays/strutture/")}#${structure.id}`,
-      ),
+      url: absoluteUrl(`/stays/strutture/#${structure.id}`),
     })),
   };
 
@@ -52,21 +43,16 @@ export function HousesPage({ locale }: HousesPageProps) {
     <>
       <main id="contenuto">
         <PageHead
-          locale={locale}
-          eyebrow={t.pageHead.eyebrow}
-          title={t.pageHead.title}
-          text={t.pageHead.text}
-          current={t.pageHead.current}
+          eyebrow={houses.pageHead.eyebrow}
+          title={houses.pageHead.title}
+          text={houses.pageHead.text}
+          current={houses.pageHead.current}
         />
 
         <section className="section">
           <div className="container">
             {structures.map((structure) => (
-              <StructureDetail
-                key={structure.id}
-                locale={locale}
-                structure={structure}
-              />
+              <StructureDetail key={structure.id} structure={structure} />
             ))}
           </div>
         </section>
@@ -78,14 +64,14 @@ export function HousesPage({ locale }: HousesPageProps) {
           <div className="container">
             <div className="section__head reveal">
               <div>
-                <p className="eyebrow">{t.common.eyebrow}</p>
+                <p className="eyebrow">{houses.common.eyebrow}</p>
                 <h2 className="section__title" id="comuni-title">
-                  {t.common.titleLead} <em>{t.common.titleEm}</em>
+                  {houses.common.titleLead} <em>{houses.common.titleEm}</em>
                 </h2>
               </div>
             </div>
             <div className="features">
-              {features.map((feature, index) => (
+              {commonFeatures.map((feature, index) => (
                 <FeatureCard
                   key={feature.title}
                   feature={feature}
@@ -97,10 +83,10 @@ export function HousesPage({ locale }: HousesPageProps) {
         </section>
 
         <CtaBand
-          title={t.cta.title}
-          text={t.cta.text}
-          buttonLabel={t.cta.button}
-          href={localeHref(locale, "/stays/contatti/#richiesta")}
+          title={houses.cta.title}
+          text={houses.cta.text}
+          buttonLabel={houses.cta.button}
+          href="/stays/contatti/#richiesta"
         />
       </main>
       <JsonLd data={jsonLd} />

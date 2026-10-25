@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Jost } from "next/font/google";
 
 import { RevealObserver } from "@/components/reveal-observer";
-import { absoluteUrl, ogImage, siteConfig, siteCopy } from "@/data/site";
+import { absoluteUrl, ogImage, siteConfig } from "@/data/site";
 
 import "./globals.css";
 import "./cora.css";
@@ -25,10 +25,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(`${siteConfig.url}/`),
   title: {
-    default: siteCopy.it.title,
+    default: siteConfig.title,
     template: "%s — CORA",
   },
-  description: siteCopy.it.description,
+  description: siteConfig.description,
   applicationName: siteConfig.name,
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
@@ -52,14 +52,14 @@ export const metadata: Metadata = {
     locale: "it_IT",
     siteName: siteConfig.name,
     title: "CORA — A World of Possibilities",
-    description: siteCopy.it.shortDescription,
+    description: siteConfig.shortDescription,
     url: absoluteUrl("/"),
     images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
     title: "CORA — A World of Possibilities",
-    description: siteCopy.it.shortDescription,
+    description: siteConfig.shortDescription,
     images: [ogImage.url],
   },
   robots: {
