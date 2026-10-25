@@ -1,48 +1,44 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { Icon } from "@/components/icons";
-import {
-  galleryFilters,
-  galleryItems,
-  type GalleryFilter,
-} from "@/data/gallery";
+import { getGallery, type GalleryFilter } from "@/data/gallery";
+import { getDictionary } from "@/i18n";
+import type { Locale } from "@/i18n/config";
 import { revealDelay } from "@/lib/styles";
 
-export function Gallery() {
+type GalleryProps = {
+  locale: Locale;
+};
+
+export function Gallery({ locale }: GalleryProps) {
+  const t = getDictionary(locale);
+  const { filters, items } = getGallery(locale);
   const [filter, setFilter] = useState<GalleryFilter>("tutte");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const lastFocusedRef = useRef<HTMLElement | null>(null);
 
-  const visibleItems = useMemo(
-    () =>
-      filter === "tutte"
-        ? galleryItems
-        : galleryItems.filter((item) => item.category === filter),
-    [filter],
-  );
+  const visibleItems =
+    filter === "tutte"
+      ? items
+      : items.filter((item) => item.category === filter);
 
   const isOpen = openIndex !== null;
   const currentItem =
     openIndex !== null ? visibleItems[openIndex] : undefined;
 
-  const close = useCallback(() => setOpenIndex(null), []);
+  const close = () => setOpenIndex(null);
 
-  const step = useCallback(
-    (direction: -1 | 1) => {
-      setOpenIndex((index) => {
-        if (index === null || visibleItems.length === 0) return index;
-        return (
-          (index + direction + visibleItems.length) % visibleItems.length
-        );
-      });
-    },
-    [visibleItems.length],
-  );
+  const step = (direction: -1 | 1) => {
+    setOpenIndex((index) => {
+      if (index === null || visibleItems.length === 0) return index;
+      return (index + direction + visibleItems.length) % visibleItems.length;
+    });
+  };
 
   useEffect(() => {
     if (!isOpen) return;
@@ -65,19 +61,19 @@ export function Gallery() {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         event.preventDefault();
-        close();
+        setOpenIndex(null);
         return;
       }
 
-      if (event.key === "ArrowLeft") {
+      if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
         event.preventDefault();
-        step(-1);
-        return;
-      }
-
-      if (event.key === "ArrowRight") {
-        event.preventDefault();
-        step(1);
+        const direction = event.key === "ArrowLeft" ? -1 : 1;
+        setOpenIndex((index) => {
+          if (index === null || visibleItems.length === 0) return index;
+          return (
+            (index + direction + visibleItems.length) % visibleItems.length
+          );
+        });
         return;
       }
 
@@ -102,7 +98,7 @@ export function Gallery() {
 
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
-  }, [close, isOpen, step]);
+  }, [isOpen, visibleItems.length]);
 
   const changeFilter = (value: GalleryFilter) => {
     setFilter(value);
@@ -114,9 +110,9 @@ export function Gallery() {
       <div
         className="filters reveal"
         role="group"
-        aria-label="Filtra le foto per categoria"
+        aria-label={t.gallery.ui.filterLabel}
       >
-        {galleryFilters.map((item) => (
+        {filters.map((item) => (
           <button
             key={item.value}
             className="filter"
@@ -162,7 +158,7 @@ export function Gallery() {
         className={`lightbox${isOpen ? " is-open" : ""}`}
         role="dialog"
         aria-modal={isOpen}
-        aria-label="Galleria fotografica"
+        aria-label={t.gallery.ui.dialogLabel}
         aria-hidden={!isOpen}
       >
         <div className="lightbox__bar">
@@ -173,7 +169,7 @@ export function Gallery() {
             ref={closeRef}
             className="lightbox__close"
             type="button"
-            aria-label="Chiudi la galleria"
+            aria-label={t.gallery.ui.close}
             onClick={close}
           >
             <Icon name="close" strokeWidth={1.8} />
@@ -189,7 +185,7 @@ export function Gallery() {
           <button
             className="lightbox__nav lightbox__nav--prev"
             type="button"
-            aria-label="Foto precedente"
+            aria-label={t.gallery.ui.previous}
             onClick={() => step(-1)}
           >
             <Icon name="chevron-left" strokeWidth={1.8} />
@@ -205,7 +201,7 @@ export function Gallery() {
           <button
             className="lightbox__nav lightbox__nav--next"
             type="button"
-            aria-label="Foto successiva"
+            aria-label={t.gallery.ui.next}
             onClick={() => step(1)}
           >
             <Icon name="chevron-right" strokeWidth={1.8} />

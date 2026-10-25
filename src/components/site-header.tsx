@@ -1,21 +1,30 @@
 "use client";
 
 import { Link } from "@/components/link";
+import { LocaleSwitcher } from "@/components/locale-switcher";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
-import { navigation } from "@/data/navigation";
+import { getNavigation } from "@/data/navigation";
+import { getDictionary } from "@/i18n";
+import { localeHref, stripLocale, type Locale } from "@/i18n/config";
 
 const normalizePath = (path: string) => path.replace(/\/$/, "") || "/";
 
-export function SiteHeader() {
+type SiteHeaderProps = {
+  locale: Locale;
+};
+
+export function SiteHeader({ locale }: SiteHeaderProps) {
+  const t = getDictionary(locale);
+  const navigation = getNavigation(locale);
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const headerRef = useRef<HTMLElement>(null);
 
-  const currentPath = normalizePath(pathname);
+  const currentPath = normalizePath(stripLocale(pathname));
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -78,29 +87,17 @@ export function SiteHeader() {
       <div className="container header__inner">
         <Link
           className="brand brand--cora"
-          href="/"
+          href={localeHref(locale, "/")}
           onClick={() => setMenuOpen(false)}
-          aria-label="CORA — Home"
+          aria-label={t.header.home}
         >
           <span className="brand__wordmark">CORA</span>
         </Link>
 
-        <button
-          ref={toggleRef}
-          className="nav-toggle"
-          type="button"
-          aria-expanded={menuOpen}
-          aria-controls="menu-principale"
-          aria-label={menuOpen ? "Chiudi il menu" : "Apri il menu"}
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          <span className="nav-toggle__bars" aria-hidden="true" />
-        </button>
-
         <nav
           className={`nav${menuOpen ? " is-open" : ""}`}
           id="menu-principale"
-          aria-label="Navigazione principale"
+          aria-label={t.header.mainNav}
         >
           <ul className="nav__list">
             {navigation.map((item) => {
@@ -112,7 +109,7 @@ export function SiteHeader() {
                 <li key={item.href}>
                   <Link
                     className="nav__link"
-                    href={item.href}
+                    href={localeHref(locale, item.href)}
                     aria-current={active ? "page" : undefined}
                     onClick={() => setMenuOpen(false)}
                   >
@@ -124,12 +121,33 @@ export function SiteHeader() {
           </ul>
           <Link
             className="btn btn--primary nav__cta"
-            href="/stays/contatti/#richiesta"
+            href={localeHref(locale, "/stays/contatti/#richiesta")}
             onClick={() => setMenuOpen(false)}
           >
-            Prenota
+            {t.header.book}
           </Link>
         </nav>
+
+        <div className="header__actions">
+          <LocaleSwitcher
+            locale={locale}
+            label={t.languageSwitcher.label}
+            optionLabels={t.languageSwitcher.options}
+            onNavigate={() => setMenuOpen(false)}
+          />
+
+          <button
+            ref={toggleRef}
+            className="nav-toggle"
+            type="button"
+            aria-expanded={menuOpen}
+            aria-controls="menu-principale"
+            aria-label={menuOpen ? t.header.closeMenu : t.header.openMenu}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <span className="nav-toggle__bars" aria-hidden="true" />
+          </button>
+        </div>
       </div>
     </header>
   );

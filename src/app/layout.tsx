@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Jost } from "next/font/google";
 
 import { RevealObserver } from "@/components/reveal-observer";
-import { absoluteUrl, ogImage, siteConfig } from "@/data/site";
+import { absoluteUrl, ogImage, siteConfig, siteCopy } from "@/data/site";
 
 import "./globals.css";
 import "./cora.css";
@@ -25,10 +25,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(`${siteConfig.url}/`),
   title: {
-    default: siteConfig.title,
+    default: siteCopy.it.title,
     template: "%s — CORA",
   },
-  description: siteConfig.description,
+  description: siteCopy.it.description,
   applicationName: siteConfig.name,
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
@@ -41,8 +41,7 @@ export const metadata: Metadata = {
     "CORA LIVING",
     "CORA PROJECTS",
     "camere Salerno",
-    "appartamenti Salerno",
-    "Costiera Amalfitana",
+    "case vacanza Salerno",
     "Cilento",
   ],
   alternates: {
@@ -53,14 +52,14 @@ export const metadata: Metadata = {
     locale: "it_IT",
     siteName: siteConfig.name,
     title: "CORA — A World of Possibilities",
-    description: siteConfig.shortDescription,
+    description: siteCopy.it.shortDescription,
     url: absoluteUrl("/"),
     images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
     title: "CORA — A World of Possibilities",
-    description: siteConfig.shortDescription,
+    description: siteCopy.it.shortDescription,
     images: [ogImage.url],
   },
   robots: {
@@ -92,9 +91,6 @@ export default function RootLayout({
         <noscript>
           <style>{`.reveal{opacity:1!important;transform:none!important}`}</style>
         </noscript>
-        <a className="skip-link" href="#contenuto">
-          Vai al contenuto principale
-        </a>
         {children}
         <RevealObserver />
       </body>

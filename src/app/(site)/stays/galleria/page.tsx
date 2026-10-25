@@ -1,41 +1,7 @@
-import { CtaBand } from "@/components/cta-band";
-import { Gallery } from "@/components/gallery";
-import { PageHead } from "@/components/page-head";
-import { createPageMetadata } from "@/lib/metadata";
+import { GalleryPage, galleryMetadata } from "@/views/gallery-page";
 
-export const metadata = createPageMetadata({
-  title: "Galleria — CORA STAYS",
-  description:
-    "Le camere, le terrazze, le colazioni e gli esterni delle cinque case di CORA STAYS, tra Salerno, la Costiera Amalfitana e il Cilento.",
-  path: "/stays/galleria/",
-  absoluteTitle: true,
-  ogTitle: "CORA STAYS — Galleria",
-  ogDescription:
-    "Uno sguardo alle nostre case: camere, esterni, colazioni e appartamenti.",
-});
+export const metadata = galleryMetadata("it");
 
-export default function GalleriaPage() {
-  return (
-    <main id="contenuto">
-      <PageHead
-        eyebrow="Sguardi"
-        title="La casa, prima di arrivarci"
-        text="Clicca su una foto per vederla a tutto schermo. Usa le frecce della tastiera per passare da una all'altra, Esc per chiudere."
-        current="Galleria"
-      />
-
-      <section className="section">
-        <div className="container">
-          <Gallery />
-        </div>
-      </section>
-
-      <CtaBand
-        title="Ti è venuta voglia di partire?"
-        text="Scrivici le date e la struttura che ti incuriosisce: ti diciamo subito se è libera."
-        buttonLabel="Richiedi disponibilità"
-        href="/stays/contatti/#richiesta"
-      />
-    </main>
-  );
+export default function Page() {
+  return <GalleryPage locale="it" />;
 }

@@ -2,13 +2,17 @@ import Image from "next/image";
 import { Link } from "@/components/link";
 
 import type { Structure } from "@/data/structures";
+import { getDictionary } from "@/i18n";
+import { localeHref, type Locale } from "@/i18n/config";
 import { revealDelay } from "@/lib/styles";
 
 type StructureDetailProps = {
+  locale: Locale;
   structure: Structure;
 };
 
-export function StructureDetail({ structure }: StructureDetailProps) {
+export function StructureDetail({ locale, structure }: StructureDetailProps) {
+  const t = getDictionary(locale);
   const titleId = `${structure.id}-title`;
 
   return (
@@ -38,13 +42,19 @@ export function StructureDetail({ structure }: StructureDetailProps) {
         </ul>
         <div className="structure__foot">
           <p className="structure__price">
-            <strong>−15%</strong>prenotando direttamente dal sito
+            <strong>−15%</strong> {t.structureDetail.discount}
           </p>
-          <Link className="btn btn--primary" href="/stays/contatti/#richiesta">
-            Chiedi disponibilità
+          <Link
+            className="btn btn--primary"
+            href={localeHref(locale, "/stays/contatti/#richiesta")}
+          >
+            {t.structureDetail.ask}
           </Link>
-          <Link className="link-arrow" href="/stays/galleria/">
-            Guarda le foto
+          <Link
+            className="link-arrow"
+            href={localeHref(locale, "/stays/galleria/")}
+          >
+            {t.structureDetail.photos}
           </Link>
         </div>
       </div>

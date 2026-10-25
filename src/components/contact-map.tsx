@@ -1,8 +1,17 @@
-export function ContactMap() {
+import { getDictionary } from "@/i18n";
+import type { Locale } from "@/i18n/config";
+
+type ContactMapProps = {
+  locale: Locale;
+};
+
+export function ContactMap({ locale }: ContactMapProps) {
+  const t = getDictionary(locale).contact.map;
+
   return (
     <div className="map-wrap reveal">
       <iframe
-        title="Mappa di Salerno e dintorni"
+        title={t.title}
         src="https://www.openstreetmap.org/export/embed.html?bbox=14.735%2C40.663%2C14.795%2C40.692&layer=mapnik&marker=40.6782%2C14.7654"
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
@@ -13,9 +22,9 @@ export function ContactMap() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Apri la mappa su OpenStreetMap
+          {t.open}
         </a>{" "}
-        · Salerno, Campania
+        · {t.location}
       </p>
     </div>
   );

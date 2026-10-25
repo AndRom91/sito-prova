@@ -1,45 +1,46 @@
 import { z } from "zod";
 
-export const bookingSchema = z
-  .object({
-    nome: z
-      .string()
-      .trim()
-      .min(2, "Inserisci nome e cognome.")
-      .max(120, "Il nome è troppo lungo."),
-    email: z
-      .string()
-      .trim()
-      .email("Inserisci un indirizzo email valido.")
-      .max(180, "L'indirizzo email è troppo lungo."),
-    telefono: z
-      .string()
-      .trim()
-      .max(40, "Il numero di telefono è troppo lungo.")
-      .optional(),
-    struttura: z.string().trim().max(120).optional(),
-    arrivo: z.string().trim().optional(),
-    partenza: z.string().trim().optional(),
-    ospiti: z.string().trim().max(10).optional(),
-    messaggio: z
-      .string()
-      .trim()
-      .min(10, "Scrivi almeno una frase per raccontarci il viaggio.")
-      .max(3000, "Il messaggio è troppo lungo."),
-    privacy: z.boolean().refine(Boolean, {
-      message: "Devi accettare l'informativa privacy per inviare la richiesta.",
-    }),
-  })
-  .refine(
-    (data) =>
-      !data.arrivo || !data.partenza || data.partenza > data.arrivo,
-    {
-      path: ["partenza"],
-      message: "La data di partenza deve essere successiva all'arrivo.",
-    },
-  );
+import type { Dictionary } from "@/i18n";
 
-export type BookingValues = z.infer<typeof bookingSchema>;
+type BookingMessages = Dictionary["contact"]["form"]["validation"];
+
+export function createBookingSchema(messages: BookingMessages) {
+  return z
+    .object({
+      nome: z
+        .string()
+        .trim()
+        .min(2, messages.nameMin)
+        .max(120, messages.nameMax),
+      email: z
+        .string()
+        .trim()
+        .email(messages.emailInvalid)
+        .max(180, messages.emailMax),
+      telefono: z.string().trim().max(40, messages.phoneMax).optional(),
+      struttura: z.string().trim().max(120).optional(),
+      arrivo: z.string().trim().optional(),
+      partenza: z.string().trim().optional(),
+      ospiti: z.string().trim().max(10).optional(),
+      messaggio: z
+        .string()
+        .trim()
+        .min(10, messages.messageMin)
+        .max(3000, messages.messageMax),
+      privacy: z.boolean().refine(Boolean, {
+        message: messages.privacy,
+      }),
+    })
+    .refine(
+      (data) => !data.arrivo || !data.partenza || data.partenza > data.arrivo,
+      {
+        path: ["partenza"],
+        message: messages.dates,
+      },
+    );
+}
+
+export type BookingValues = z.infer<ReturnType<typeof createBookingSchema>>;
 
 export type BookingField = keyof BookingValues;
 

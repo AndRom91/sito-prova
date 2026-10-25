@@ -1,60 +1,36 @@
 import type { MetadataRoute } from "next";
 
 import { absoluteUrl } from "@/data/site";
+import { localeHref, locales } from "@/i18n/config";
 
 export const dynamic = "force-static";
+
+const pages = [
+  { path: "/", changeFrequency: "monthly", priority: 1 },
+  { path: "/stays/", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/stays/strutture/", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/stays/galleria/", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/stays/contatti/", changeFrequency: "yearly", priority: 0.7 },
+  { path: "/wears/", changeFrequency: "monthly", priority: 0.6 },
+  { path: "/living/", changeFrequency: "monthly", priority: 0.6 },
+  { path: "/projects/", changeFrequency: "monthly", priority: 0.5 },
+] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
-  return [
-    {
-      url: absoluteUrl("/"),
+  return pages.flatMap((page) =>
+    locales.map((locale) => ({
+      url: absoluteUrl(localeHref(locale, page.path)),
       lastModified,
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-    {
-      url: absoluteUrl("/stays/"),
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: absoluteUrl("/stays/strutture/"),
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: absoluteUrl("/stays/galleria/"),
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: absoluteUrl("/stays/contatti/"),
-      lastModified,
-      changeFrequency: "yearly",
-      priority: 0.7,
-    },
-    {
-      url: absoluteUrl("/wears/"),
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: absoluteUrl("/living/"),
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: absoluteUrl("/projects/"),
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.5,
-    },
-  ];
+      changeFrequency: page.changeFrequency,
+      priority: page.priority,
+      alternates: {
+        languages: {
+          it: absoluteUrl(localeHref("it", page.path)),
+          en: absoluteUrl(localeHref("en", page.path)),
+        },
+      },
+    })),
+  );
 }

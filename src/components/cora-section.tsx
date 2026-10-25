@@ -4,8 +4,11 @@ import type { StaticImageData } from "next/image";
 
 import { Icon } from "@/components/icons";
 import { siteConfig } from "@/data/site";
+import { getDictionary } from "@/i18n";
+import { localeHref, type Locale } from "@/i18n/config";
 
 type CoraSectionProps = {
+  locale: Locale;
   title: string;
   subtitle: string;
   description: string;
@@ -15,6 +18,7 @@ type CoraSectionProps = {
 };
 
 export function CoraSection({
+  locale,
   title,
   subtitle,
   description,
@@ -22,6 +26,8 @@ export function CoraSection({
   alt,
   variant = "image",
 }: CoraSectionProps) {
+  const t = getDictionary(locale);
+
   return (
     <main className="cora-section" id="contenuto">
       <section className="cora-section__hero" aria-labelledby="section-title">
@@ -46,19 +52,19 @@ export function CoraSection({
           </div>
 
           <div className="cora-section__body">
-            <p className="eyebrow">Coming soon</p>
+            <p className="eyebrow">{t.brand.comingSoon}</p>
             <h1 className="cora-section__title" id="section-title">
               {title}
             </h1>
             <p className="cora-section__subtitle">{subtitle}</p>
             <p className="cora-section__text">{description}</p>
             <div className="cora-section__actions">
-              <Link className="btn btn--primary" href="/">
-                Torna a CORA
+              <Link className="btn btn--primary" href={localeHref(locale, "/")}>
+                {t.brand.back}
                 <Icon name="arrow" strokeWidth={1.8} />
               </Link>
               <a className="link-arrow" href={`mailto:${siteConfig.email}`}>
-                Scrivici
+                {t.brand.write}
                 <Icon name="arrow" strokeWidth={1.8} />
               </a>
             </div>

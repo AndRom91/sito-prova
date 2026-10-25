@@ -18,7 +18,10 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <>
-      <SiteHeader />
+      <a className="skip-link" href="#contenuto">
+        Vai al contenuto principale
+      </a>
+      <SiteHeader locale="it" />
       <main id="contenuto">
         <section className="page-head" aria-labelledby="page-title">
           <div className="container">
@@ -42,7 +45,7 @@ export default function NotFound() {
           </div>
         </section>
       </main>
-      <SiteFooter />
+      <SiteFooter locale="it" />
     </>
   );
 }

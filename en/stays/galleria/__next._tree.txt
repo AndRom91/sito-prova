@@ -1,0 +1,10 @@
+:HL["/_next/static/chunks/44yrnry_-tm1r.css","style"]
+:HL["/_next/static/media/07c7676b89ed2778-s.p.2bn3s6zvc0dyp.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/78eb2d37ccba2007-s.p.2csanl8cs02r-.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/f87155ad9584d197-s.p.0brp6yyop-3q2.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+5:[["children",{"s":"__PAGE__","h":160}]]
+4:[["children",{"s":"galleria","h":96,"c":"$Q5"}]]
+3:[["children",{"s":"stays","h":96,"c":"$Q4"}]]
+2:[["children",{"s":"(site)","h":96,"c":"$Q3"}]]
+1:[["children",{"s":"en","h":96,"c":"$Q2"}]]
+0:{"b":"sb37eO2VZyBMFNfRf2FlN","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

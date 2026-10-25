@@ -1,13 +1,15 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import type { FormEvent } from "react";
 
 import { Icon } from "@/components/icons";
 import { siteConfig } from "@/data/site";
+import { getDictionary } from "@/i18n";
+import type { Locale } from "@/i18n/config";
 import {
   bookingDefaults,
-  bookingSchema,
+  createBookingSchema,
   type BookingField,
   type BookingValues,
 } from "@/lib/validation";
@@ -18,6 +20,10 @@ type FormStatus = {
   message: string;
 };
 
+type ContactFormProps = {
+  locale: Locale;
+};
+
 const focusOrder: BookingField[] = [
   "nome",
   "email",
@@ -26,13 +32,23 @@ const focusOrder: BookingField[] = [
   "privacy",
 ];
 
-export function ContactForm() {
+const fill = (template: string, values: Record<string, string>) =>
+  template.replace(/\{(\w+)\}/g, (match, key: string) => values[key] ?? match);
+
+export function ContactForm({ locale }: ContactFormProps) {
+  const t = getDictionary(locale).contact.form;
+  const bookingSchema = useMemo(
+    () => createBookingSchema(t.validation),
+    [t.validation],
+  );
   const [values, setValues] = useState<BookingValues>(bookingDefaults);
   const [errors, setErrors] = useState<
     Partial<Record<BookingField, string>>
   >({});
   const [status, setStatus] = useState<FormStatus | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
+
+  const siteValues = { email: siteConfig.email, phone: siteConfig.phone };
 
   const update = (field: BookingField, value: string | boolean) => {
     setValues((previous) => ({ ...previous, [field]: value } as BookingValues));
@@ -67,8 +83,7 @@ export function ContactForm() {
       setErrors(nextErrors);
       setStatus({
         type: "error",
-        message:
-          "Controlla i campi evidenziati: ci manca qualche informazione per risponderti.",
+        message: t.error,
       });
 
       const firstInvalid = focusOrder.find((field) => nextErrors[field]);
@@ -81,20 +96,20 @@ export function ContactForm() {
 
     const data = result.data;
     const details = [
-      `Nome: ${data.nome}`,
-      `Email: ${data.email}`,
-      data.telefono ? `Telefono: ${data.telefono}` : "",
-      data.struttura ? `Struttura: ${data.struttura}` : "",
-      data.arrivo ? `Arrivo: ${data.arrivo}` : "",
-      data.partenza ? `Partenza: ${data.partenza}` : "",
-      data.ospiti ? `Ospiti: ${data.ospiti}` : "",
+      `${t.mailLabels.name}: ${data.nome}`,
+      `${t.mailLabels.email}: ${data.email}`,
+      data.telefono ? `${t.mailLabels.phone}: ${data.telefono}` : "",
+      data.struttura ? `${t.mailLabels.structure}: ${data.struttura}` : "",
+      data.arrivo ? `${t.mailLabels.arrival}: ${data.arrivo}` : "",
+      data.partenza ? `${t.mailLabels.departure}: ${data.partenza}` : "",
+      data.ospiti ? `${t.mailLabels.guests}: ${data.ospiti}` : "",
       "",
       data.messaggio,
     ].filter((line) => line !== "");
 
-    const subject = `Richiesta disponibilità${
-      data.struttura ? ` — ${data.struttura}` : ""
-    }`;
+    const subject = data.struttura
+      ? fill(t.mailSubjectStructure, { structure: data.struttura })
+      : t.mailSubject;
     const mailto = `mailto:${siteConfig.email}?subject=${encodeURIComponent(
       subject,
     )}&body=${encodeURIComponent(details.join("\n"))}`;
@@ -102,25 +117,27 @@ export function ContactForm() {
     setErrors({});
     setStatus({
       type: "success",
-      message:
-        "Grazie! Si sta aprendo il tuo programma di posta con la richiesta già compilata. Se non si apre, scrivici a info@roomshub.it.",
+      message: fill(t.success, siteValues),
     });
-    window.location.href = mailto;
+    window.location.assign(mailto);
   };
+
+  const requiredNoteParts = t.requiredNote.split("*");
 
   return (
     <div className="form-card reveal" id="richiesta" style={revealDelay(80)}>
-      <h2>Richiedi disponibilità</h2>
+      <h2>{t.title}</h2>
       <p>
-        I campi con <span style={{ color: "var(--sea)" }}>*</span> sono
-        obbligatori.
+        {requiredNoteParts[0]}
+        <span style={{ color: "var(--sea)" }}>*</span>
+        {requiredNoteParts[1]}
       </p>
 
       <form ref={formRef} id="richiesta-form" noValidate onSubmit={handleSubmit}>
         <div className="form-grid">
           <div className="field">
             <label htmlFor="nome">
-              Nome e cognome <span className="req">*</span>
+              {t.name} <span className="req">*</span>
             </label>
             <input
               type="text"
@@ -140,7 +157,7 @@ export function ContactForm() {
 
           <div className="field">
             <label htmlFor="email">
-              Email <span className="req">*</span>
+              {t.email} <span className="req">*</span>
             </label>
             <input
               type="email"
@@ -159,7 +176,7 @@ export function ContactForm() {
           </div>
 
           <div className="field">
-            <label htmlFor="telefono">Telefono</label>
+            <label htmlFor="telefono">{t.phone}</label>
             <input
               type="tel"
               id="telefono"
@@ -172,30 +189,24 @@ export function ContactForm() {
           </div>
 
           <div className="field">
-            <label htmlFor="struttura">Struttura</label>
+            <label htmlFor="struttura">{t.structure}</label>
             <select
               id="struttura"
               name="struttura"
               value={values.struttura}
               onChange={(event) => update("struttura", event.target.value)}
             >
-              <option value="">Nessuna preferenza</option>
-              <option value="Portarotese">Portarotese — Salerno</option>
-              <option value="Zottoli">Zottoli — Salerno</option>
-              <option value="Vietri sul Mare">
-                Vietri sul Mare — Costa d&apos;Amalfi
-              </option>
-              <option value="Torre di Cesare">
-                Torre di Cesare — Costiera Amalfitana
-              </option>
-              <option value="Leucosia">
-                Leucosia — Santa Maria di Castellabate
-              </option>
+              <option value="">{t.noPreference}</option>
+              {t.structureOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
             </select>
           </div>
 
           <div className="field">
-            <label htmlFor="arrivo">Data di arrivo</label>
+            <label htmlFor="arrivo">{t.arrival}</label>
             <input
               type="date"
               id="arrivo"
@@ -206,7 +217,7 @@ export function ContactForm() {
           </div>
 
           <div className="field">
-            <label htmlFor="partenza">Data di partenza</label>
+            <label htmlFor="partenza">{t.departure}</label>
             <input
               type="date"
               id="partenza"
@@ -222,25 +233,27 @@ export function ContactForm() {
           </div>
 
           <div className="field field--full">
-            <label htmlFor="ospiti">Numero di ospiti</label>
+            <label htmlFor="ospiti">{t.guests}</label>
             <select
               id="ospiti"
               name="ospiti"
               value={values.ospiti}
               onChange={(event) => update("ospiti", event.target.value)}
             >
-              <option value="1">1 ospite</option>
-              <option value="2">2 ospiti</option>
-              <option value="3">3 ospiti</option>
-              <option value="4">4 ospiti</option>
-              <option value="5">5 ospiti</option>
-              <option value="6+">6 o più ospiti</option>
+              {t.guestOptions.map((option, index) => (
+                <option
+                  key={option}
+                  value={index < t.guestOptions.length - 1 ? `${index + 1}` : "6+"}
+                >
+                  {option}
+                </option>
+              ))}
             </select>
           </div>
 
           <div className="field field--full">
             <label htmlFor="messaggio">
-              Messaggio <span className="req">*</span>
+              {t.message} <span className="req">*</span>
             </label>
             <textarea
               id="messaggio"
@@ -249,7 +262,7 @@ export function ContactForm() {
               value={values.messaggio}
               aria-invalid={errors.messaggio ? true : undefined}
               aria-describedby="messaggio-error"
-              placeholder="Raccontaci il viaggio: date, esigenze, bambini, animali, occasione speciale…"
+              placeholder={t.messagePlaceholder}
               onChange={(event) => update("messaggio", event.target.value)}
             />
             <span className="field__error" id="messaggio-error" role="alert">
@@ -270,9 +283,7 @@ export function ContactForm() {
                 onChange={(event) => update("privacy", event.target.checked)}
               />
               <span>
-                Ho letto l&apos;informativa privacy e acconsento al trattamento
-                dei dati per rispondere alla richiesta.{" "}
-                <span className="req">*</span>
+                {t.privacy} <span className="req">*</span>
               </span>
             </label>
             <span className="field__error" id="privacy-error" role="alert">
@@ -282,14 +293,10 @@ export function ContactForm() {
 
           <div className="field field--full">
             <button className="btn btn--primary btn--wide" type="submit">
-              Invia la richiesta
+              {t.submit}
               <Icon name="arrow" strokeWidth={1.8} />
             </button>
-            <p className="form-note">
-              L&apos;invio apre il tuo programma di posta con il messaggio già
-              compilato e indirizzato a {siteConfig.email}. Preferisci WhatsApp?
-              Scrivici al {siteConfig.phone}.
-            </p>
+            <p className="form-note">{fill(t.note, siteValues)}</p>
             <p
               className={`form-status${
                 status ? ` form-status--${status.type} is-visible` : ""
@@ -302,10 +309,11 @@ export function ContactForm() {
             </p>
             <noscript>
               <p className="form-note">
-                Il modulo interattivo richiede JavaScript. Nel frattempo puoi
-                scriverci direttamente a{" "}
-                <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>{" "}
-                oppure chiamare il {siteConfig.phone}.
+                {t.noscript.split("{email}")[0]}
+                <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+                {t.noscript.split("{email}")[1]?.split("{phone}")[0]}
+                {siteConfig.phone}
+                {t.noscript.split("{phone}")[1]}
               </p>
             </noscript>
           </div>
